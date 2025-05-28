@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현장 인사노무 핵심이슈 완벽 가이드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2563EB 0%, #1e40af 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 16px;
+            color: #cbd5e1;
+            margin-bottom: 5px;
+        }
+        
+        .header .meta {
+            text-align: right;
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #1e40af;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title::before {
+            content: "📋";
+            font-size: 20px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border-left: 4px solid #2563EB;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #2563EB, #1e40af);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .priority-high {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border-left: 4px solid #ef4444;
+            color: #dc2626;
+        }
+        
+        .priority-medium {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border-left: 4px solid #f59e0b;
+            color: #d97706;
+        }
+        
+        .priority-low {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-left: 4px solid #10b981;
+            color: #059669;
+        }
+        
+        .info-box {
+            padding: 18px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .formula {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .formula::before {
+            content: "💡";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            background: #f59e0b;
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563EB, #1e40af);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #2563EB 0%, #1e40af 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .conclusion h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header .meta {
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div>
+                <h1>현장 인사노무 핵심이슈 완벽 가이드</h1>
+                <div class="subtitle">노사관계 혁신을 위한 현장 중심 교육자료</div>
+            </div>
+            <div class="meta">
+                <div>최영우 과정 주임교수</div>
+                <div>2025년 5월 29일</div>
+            </div>
+        </header>
+
+        <div class="card">
+            <h2 class="section-title">📍 휴일 vs 휴무의 핵심 차이점</h2>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th style="width: 20%;">구분</th>
+                    <th style="width: 40%;">휴일</th>
+                    <th style="width: 40%;">휴무</th>
+                </tr>
+                <tr>
+                    <td><strong>정의</strong></td>
+                    <td>근로제공의무가 처음부터 없는 날</td>
+                    <td>소정근로일에 근로의무가 면제된 날</td>
+                </tr>
+                <tr>
+                    <td><strong>예시</strong></td>
+                    <td>법정휴일(주휴일, 근로자의 날, 공휴일), 약정휴일(회사창립기념일 등)</td>
+                    <td>주5일제 근무시 토요일, 교대제 근무에서 주휴일을 제외한 비번일</td>
+                </tr>
+                <tr>
+                    <td><strong>근무시 수당</strong></td>
+                    <td>휴일근로: ~8시간 50%, 8시간 초과 100%</td>
+                    <td>연장근로: 50%</td>
+                </tr>
+            </table>
+
+            <div class="info-box priority-high">
+                <strong>🚨 핵심 포인트:</strong> 토요일 휴무일에 근무한 경우, 노사가 휴일로 합의하지 않았다면 '무급휴무일'로 연장근로수당(50%) 지급이 원칙입니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">⏰ 휴일근로시간의 연장근로 여부</h2>
+            
+            <div class="highlight-box">
+                <h3><span class="step-number">1</span>8시간을 초과한 휴일근로</h3>
+                <p>휴일근로 가산수당 외에 연장근로 가산수당도 중복하여 지급해야 합니다.</p>
+                <div class="formula">
+                    8시간 초과 휴일근로 = 휴일근로 가산수당(100%) + 연장근로 가산수당(50%)
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3><span class="step-number">2</span>8시간 이내의 휴일근로</h3>
+                <p><strong>과거:</strong> 연장근로로 보지 않음 (성남시 환경미화원 사건, 대법 2018.6.21)</p>
+                <p><strong>현재:</strong> 근기법 개정으로 휴일근로도 연장근로 시간 산정에 포함</p>
+            </div>
+
+            <div class="info-box priority-medium">
+                <strong>📅 근기법 개정 효과:</strong> 1주 총 근로시간이 68시간(40+12+16)에서 52시간(40+12)으로 단축되었습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">🔄 연장근로 vs 초과근로</h2>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>구분</th>
+                    <th>개념</th>
+                    <th>예시</th>
+                    <th>가산수당</th>
+                    <th>예외</th>
+                </tr>
+                <tr>
+                    <td><strong>연장근로</strong></td>
+                    <td>법정근로시간 초과</td>
+                    <td>1일 8시간+1시간<br>1주 40시간+1시간</td>
+                    <td>50%</td>
+                    <td>• 4명 이하 사업장<br>• 유연근무제<br>• 감시단속근로</td>
+                </tr>
+                <tr>
+                    <td><strong>초과근로<br>(법내연장)</strong></td>
+                    <td>소정근로시간 초과</td>
+                    <td>1일 7시간+1시간</td>
+                    <td>없음*</td>
+                    <td>단시간근로자 50%</td>
+                </tr>
+            </table>
+
+            <div class="info-box priority-low">
+                <strong>*주의사항:</strong> 취업규칙 등에서 법내 초과근로에 대해서도 할증임금을 지급하도록 특별히 규정한 경우에는 그에 따라야 합니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">🤰 특수상황별 처리방안</h2>
+            
+            <div class="highlight-box">
+                <h3>임신근로자 시간외근로 판단기준</h3>
+                <p>근로기준법 제74조 제5항에 따른 임신근로자의 '시간외근로'는 <strong>법정근로시간</strong>을 기준으로 판단합니다.</p>
+                <div class="info-box priority-high">
+                    소정근로시간이 아닌 법정근로시간(1일 8시간) 기준으로 적용하여 모든 임신근로자에게 동일한 보호 기준을 제공합니다.
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>주중 휴일/휴가가 있는 경우</h3>
+                <p>휴일 또는 휴가 기간은 실근로시간에 포함되지 않으므로, 그 시간을 제외하고 1주 40시간을 초과한 경우에 연장근로가 됩니다.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>근무시간 이후 단체교섭</h3>
+                <p>단체교섭 시간에 대한 연장근로 인정은 의무적 교섭대상이 아니며, 노사간 협의로 결정할 사안입니다.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">🔄 대체휴일 vs 대체휴가</h2>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th style="width: 20%;">구분</th>
+                    <th style="width: 40%;">대체휴일</th>
+                    <th style="width: 40%;">대체휴가</th>
+                </tr>
+                <tr>
+                    <td><strong>의미</strong></td>
+                    <td>휴일을 다른 날로 변경</td>
+                    <td>휴일, 연장, 야간근무 후 수당 대신 휴가사용</td>
+                </tr>
+                <tr>
+                    <td><strong>휴일근무?</strong></td>
+                    <td>아니오 (정상근무)</td>
+                    <td>예 (휴일근무)</td>
+                </tr>
+                <tr>
+                    <td><strong>조건</strong></td>
+                    <td>합의 (개별 또는 근로자대표)</td>
+                    <td>합의 (근로자대표)</td>
+                </tr>
+                <tr>
+                    <td><strong>부여일수</strong></td>
+                    <td>1일 (1:1)</td>
+                    <td>1.5일 (1:1.5)</td>
+                </tr>
+                <tr>
+                    <td><strong>사용기한</strong></td>
+                    <td>주휴: 다음 주까지<br>공휴일: 합의기한</td>
+                    <td>합의한 기한</td>
+                </tr>
+            </table>
+
+            <div class="info-box priority-high">
+                <strong>🚨 중요:</strong> 근로자가 자신의 귀책사유로 보상휴가를 사용하지 않은 경우에도 사용자는 해당 임금을 지급해야 합니다. 노사가 '미사용시 임금지급의무 없음'으로 합의해도 효력이 없습니다.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">📊 소정근로시간 vs 통상임금산정기준시간</h2>
+            
+            <div class="highlight-box">
+                <h3>일반 근로자 (1주 40시간, 1일 8시간, 월~금 근무, 토요일 무급휴무)</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>구분</th>
+                        <th>소정근로시간</th>
+                        <th>통상임금산정기준시간</th>
+                    </tr>
+                    <tr>
+                        <td><strong>1일</strong></td>
+                        <td>8시간</td>
+                        <td>8시간</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1주</strong></td>
+                        <td>40시간</td>
+                        <td>48시간 (40시간 + 8시간 유급주휴)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1개월</strong></td>
+                        <td>174시간</td>
+                        <td>209시간</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <h3>임신기 근로시간 단축 근로자 (1일 6시간, 주 30시간)</h3>
+                <div class="info-box priority-medium">
+                    통상임금산정기준시간수는 단축 전 시간(1일 8시간, 주 40시간)과 동일하게 적용됩니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <h3>🎯 핵심 요약</h3>
+            <p>현장에서 발생하는 인사노무 이슈는 휴일과 휴무의 정확한 구분, 연장근로와 초과근로의 차이점 이해, 그리고 각종 특수상황에 대한 명확한 기준 적용이 핵심입니다. 특히 근기법 개정으로 인한 변화사항과 대체휴일/대체휴가 제도의 올바른 운영이 중요합니다.</p>
+        </div>
+    </div>
+</body>
+</html>
