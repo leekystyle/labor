@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>근로기준법과 노동조합법상 근로자 인정 기준 비교 분석 보고서</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .executive-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .executive-summary h2 {
+            color: white;
+            border-left: 5px solid white;
+            margin-top: 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #e8f4f8;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .impact-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .criteria-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .criteria-card h4 {
+            color: #495057;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .key-point {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>근로기준법과 노동조합법상 근로자 인정 기준 비교 분석 보고서</h1>
+        
+        <div class="executive-summary">
+            <h2>핵심 요약</h2>
+            <p><strong>근로기준법</strong>은 엄격한 사용종속성을 기준으로 근로자를 판단하는 반면, <strong>노동조합법</strong>은 경제적 종속성을 포함한 완화된 기준을 적용합니다. 이러한 차이로 인해 동일한 노무제공자가 근로기준법상으로는 근로자가 아니지만 노동조합법상으로는 근로자로 인정받을 수 있으며, 이는 노동자의 권리 보호 범위에 중대한 영향을 미칩니다.</p>
+        </div>
+
+        <h2>1. 법률상 근로자 정의의 차이</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>근로기준법</th>
+                    <th>노동조합법</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>법률상 정의</strong></td>
+                    <td>직업의 종류와 관계없이 <strong>임금을 목적으로</strong> 사업이나 사업장에 <strong>근로를 제공하는 자</strong></td>
+                    <td>직업의 종류를 불문하고 <strong>임금·급료 기타 이에 준하는 수입에 의하여 생활하는 자</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>판단 기준</strong></td>
+                    <td>사용종속관계 중심의 <strong>엄격한 기준</strong></td>
+                    <td>경제적 종속성을 포함한 <strong>완화된 기준</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>보호 목적</strong></td>
+                    <td>개별적 근로관계 보호</td>
+                    <td>집단적 노사관계 보호</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>2. 구체적 판단 기준의 차이</h2>
+
+        <div class="criteria-grid">
+            <div class="criteria-card">
+                <h4>근로기준법상 판단 기준</h4>
+                <p><strong>사용종속관계</strong>를 중심으로 다음 요소들을 종합적으로 고려:</p>
+                <ul>
+                    <li>업무 내용의 사용자 결정 여부</li>
+                    <li>업무수행 과정에서의 구체적·직접적 지휘·감독</li>
+                    <li>근무시간·장소의 지정 및 구속</li>
+                    <li>업무의 대체성 유무</li>
+                    <li>비품·원자재·작업도구 등의 소유관계</li>
+                    <li>근로제공관계의 계속성과 전속성</li>
+                    <li>보수의 근로대가성</li>
+                </ul>
+            </div>
+            
+            <div class="criteria-card">
+                <h4>노동조합법상 판단 기준</h4>
+                <p><strong>경제적 종속성</strong>을 포함한 6가지 기준을 종합 고려:</p>
+                <ul>
+                    <li>소득의 특정사업자 의존도</li>
+                    <li>계약 내용의 일방적 결정</li>
+                    <li>특정 사업자 사업수행에의 필수성</li>
+                    <li>법률관계의 지속성·전속성</li>
+                    <li>지휘·감독관계의 존재</li>
+                    <li>수입의 노무제공 대가성</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="key-point">
+            <strong>핵심 차이점:</strong> 근로기준법은 '사용종속성'을 중시하는 반면, 노동조합법은 '경제적 종속성'까지 고려하여 더 넓은 범위의 근로자를 인정합니다.
+        </div>
+
+        <h2>3. 판례를 통한 실제 적용 사례</h2>
+
+        <h3>가. 학습지 교사 사례 (대법원 2018. 6. 15. 선고 2014두12598 판결)</h3>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>판단 영역</th>
+                    <th>근로기준법상 판단</th>
+                    <th>노동조합법상 판단</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>결론</strong></td>
+                    <td>근로자 <span style="color: red;">부정</span></td>
+                    <td>근로자 <span style="color: green;">인정</span></td>
+                </tr>
+                <tr>
+                    <td><strong>주요 판단 근거</strong></td>
+                    <td>
+                        • 교육 시간·장소의 자율 결정<br>
+                        • 자유로운 업무 이탈 가능<br>
+                        • 취업규칙 미적용<br>
+                        • 학습지도방식의 자율성
+                    </td>
+                    <td>
+                        • 수수료가 주된 수입원<br>
+                        • 전속적·지속적 관계<br>
+                        • 계약 내용의 일방적 결정
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>나. 기타 판례 동향</h3>
+        
+        <div class="highlight-box">
+            <strong>근로기준법상 근로자성 인정 사례:</strong>
+            <ul>
+                <li>백화점 매장 판매원 (구체적 지휘·감독 존재시)</li>
+                <li>장애인 도우미, 유아체육강사</li>
+                <li>학원강사, 웨딩플래너</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <strong>노동조합법상 근로자성 인정 사례:</strong>
+            <ul>
+                <li>방송연기자</li>
+                <li>철도역 위탁 매점운영자</li>
+                <li>자동차 판매영업사원(카마스터)</li>
+                <li>레미콘 운송차주</li>
+            </ul>
+        </div>
+
+        <h2>4. 각 법률상 인정 여부에 따른 노동자 영향</h2>
+
+        <h3>가. 근로기준법상 근로자로 인정받을 경우</h3>
+        
+        <div class="impact-box">
+            <h4>개별적 근로관계 보호</h4>
+            <ul>
+                <li><strong>근로조건 보호:</strong> 최저임금, 근로시간 제한, 휴게·휴일 보장</li>
+                <li><strong>임금 보호:</strong> 임금지급 원칙, 체불임금 구제</li>
+                <li><strong>해고 보호:</strong> 정당한 사유 없는 해고 금지, 해고예고</li>
+                <li><strong>4대 보험 적용:</strong> 국민연금, 건강보험, 고용보험, 산재보험</li>
+                <li><strong>연차유급휴가:</strong> 법정 연차휴가 부여</li>
+                <li><strong>퇴직금:</strong> 계속근로기간 1년 이상시 퇴직금 지급</li>
+            </ul>
+        </div>
+
+        <h3>나. 노동조합법상 근로자로 인정받을 경우</h3>
+        
+        <div class="impact-box">
+            <h4>집단적 노동관계 보호</h4>
+            <ul>
+                <li><strong>노동3권 보장:</strong> 단결권, 단체교섭권, 단체행동권</li>
+                <li><strong>노동조합 활동:</strong> 노동조합 설립 및 가입 권리</li>
+                <li><strong>단체교섭권:</strong> 사용자와의 단체교섭 요구 권리</li>
+                <li><strong>부당노동행위 구제:</strong> 노조활동을 이유로 한 불이익 금지</li>
+                <li><strong>쟁의행위 권리:</strong> 합법적 파업 등 쟁의행위 참여</li>
+            </ul>
+        </div>
+
+        <h3>다. 어느 법률상으로도 인정받지 못할 경우</h3>
+        
+        <div class="warning-box">
+            <h4>법적 보호의 공백</h4>
+            <ul>
+                <li><strong>근로조건 보호 배제:</strong> 최저임금, 근로시간 제한 등 미적용</li>
+                <li><strong>사회보험 배제:</strong> 4대 보험 적용 제외</li>
+                <li><strong>노동3권 제한:</strong> 노동조합 설립 및 가입 불가</li>
+                <li><strong>개인사업자 지위:</strong> 사업소득세 납부, 사업자등록 필요</li>
+            </ul>
+        </div>
+
+        <h2>5. 특수형태근로종사자에 대한 특별 고려사항</h2>
+        
+        <div class="highlight-box">
+            <p><strong>특수형태근로종사자</strong>는 근로자와 자영업자의 중간적 성격을 가진 새로운 고용형태입니다. 현재 산재보험법상 6개 직종(보험설계사, 콘크리트믹서 운전사, 학습지 교사, 골프장 경기보조원, 택배기사, 퀵서비스 기사)에 대해서만 제한적 보호가 이루어지고 있습니다.</p>
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>특징</th>
+                    <th>내용</th>
+                    <th>문제점</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>경제적 종속성</strong></td>
+                    <td>특정 회사에 전속적 노무제공</td>
+                    <td>근로자성 인정 기준 모호</td>
+                </tr>
+                <tr>
+                    <td><strong>사용종속성</strong></td>
+                    <td>일정한 지휘·감독 존재</td>
+                    <td>법적 보호의 공백</td>
+                </tr>
+                <tr>
+                    <td><strong>형식적 지위</strong></td>
+                    <td>개인사업자 등록</td>
+                    <td>사회보험 적용 제외</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>6. 최근 판례 동향 및 시사점</h2>
+        
+        <div class="key-point">
+            <strong>최근 판례 동향:</strong>
+            <ul>
+                <li>근로기준법상 근로자성은 <strong>엄격한 사용종속성</strong>을 중심으로 판단</li>
+                <li>노동조합법상 근로자성은 <strong>경제적 종속성</strong>을 넓게 반영하는 경향</li>
+                <li>특수형태근로종사자의 노동조합법상 근로자성 확대 인정</li>
+                <li>플랫폼 노동자의 근로자성 문제가 새로운 쟁점으로 부상</li>
+            </ul>
+        </div>
+
+        <h2>7. 결론 및 정책적 제언</h2>
+        
+        <div class="executive-summary">
+            <h3>결론</h3>
+            <p>근로기준법과 노동조합법상 근로자 인정 기준의 차이는 노동자의 권리 보호 범위에 중대한 영향을 미칩니다. 동일한 노무제공자가 법률에 따라 다른 지위를 갖게 되어 일관성 있는 보호를 받지 못하는 문제가 발생하고 있습니다.</p>
+        </div>
+
+        <div class="impact-box">
+            <h3>정책적 제언</h3>
+            <ul>
+                <li><strong>근로자 개념의 통일화:</strong> 양 법률 간 근로자 개념의 일관성 확보 필요</li>
+                <li><strong>특수형태근로종사자 보호 확대:</strong> 산재보험 적용 직종 확대 및 의무가입 추진</li>
+                <li><strong>플랫폼 노동자 보호:</strong> 새로운 고용형태에 대한 법적 보호 체계 마련</li>
+                <li><strong>중간영역 근로자 보호:</strong> 근로자와 자영업자 사이의 중간적 지위에 대한 제3의 보호 체계 구축</li>
+                <li><strong>판례 기준의 명확화:</strong> 근로자성 판단 기준의 구체화 및 예측가능성 제고</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h3>기업의 유의사항</h3>
+            <ul>
+                <li>위탁계약 형태라고 하여 근로자성이 자동으로 부정되는 것은 아님</li>
+                <li>실질적 근무실태를 기준으로 근로자성이 판단됨</li>
+                <li>노동조합법상 근로자로 인정될 경우 단체교섭 거부시 부당노동행위에 해당</li>
+                <li>최근 판례 동향을 참고하여 근무실태 점검 필요</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>본 보고서는 2025년 5월 기준 최신 법령 및 판례를 바탕으로 작성되었습니다.<br>
+            구체적인 사안에 대해서는 전문가와 상담하시기 바랍니다.</p>
+        </div>
+    </div>
+</body>
+</html>
