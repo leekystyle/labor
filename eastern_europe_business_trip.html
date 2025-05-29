@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 한국경제신문 아카데미 동유럽 연수 출장계획서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav li {
+            margin: 0 1rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .overview-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: 3px solid #e74c3c;
+        }
+        
+        .overview-card h3 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+        
+        .overview-card ul {
+            list-style: none;
+        }
+        
+        .overview-card li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .overview-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .overview-card .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .itinerary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .itinerary-table th {
+            background: #34495e;
+            color: white;
+            padding: 1rem 0.8rem;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .itinerary-table td {
+            padding: 1rem 0.8rem;
+            border-bottom: 1px solid #ecf0f1;
+            vertical-align: top;
+        }
+        
+        .itinerary-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .day-header {
+            background: #3498db !important;
+            color: white !important;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .destination-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .destination-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .destination-body {
+            padding: 1.5rem;
+        }
+        
+        .attraction-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .attraction-list li {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: #ecf0f1;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .attraction-list li strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .hotel-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hotel-info h4 {
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+        
+        .preparation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .preparation-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .preparation-card h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e67e22;
+        }
+        
+        .cost-breakdown {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .cost-breakdown h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .cost-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid rgba(255,255,255,0.5);
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+        
+        .flight-info {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav li {
+                margin: 0.25rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>2025 한국경제신문 아카데미</h1>
+            <div class="subtitle">동유럽 선진 노조연수 8일 출장계획서</div>
+        </header>
+        
+        <nav class="nav">
+            <ul>
+                <li><a href="#overview">여행 개요</a></li>
+                <li><a href="#itinerary">일정표</a></li>
+                <li><a href="#destinations">방문지 소개</a></li>
+                <li><a href="#accommodation">숙박 정보</a></li>
+                <li><a href="#preparation">준비사항</a></li>
+                <li><a href="#cost">비용 정보</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <section id="overview" class="section">
+                <h2>📋 여행 개요</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3>🗓️ 기본 정보</h3>
+                        <ul>
+                            <li><strong>여행 기간:</strong> <span class="highlight">2025년 6월 23일(월) ~ 6월 30일(월)</span></li>
+                            <li><strong>총 일수:</strong> <span class="highlight">8일 7박</span></li>
+                            <li><strong>참가 인원:</strong> <span class="highlight">17명 + 인솔자 1명</span></li>
+                            <li><strong>여행 성격:</strong> <span class="highlight">노조연수 출장</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3>🌍 방문 국가</h3>
+                        <ul>
+                            <li><strong>체코:</strong> <span class="highlight">프라하 (3박)</span></li>
+                            <li><strong>독일:</strong> <span class="highlight">드레스덴 (당일 방문)</span></li>
+                            <li><strong>폴란드:</strong> <span class="highlight">크라쿠프, 바르샤바 (4박)</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3>✈️ 항공 정보</h3>
+                        <ul>
+                            <li><strong>항공사:</strong> <span class="highlight">폴란드항공 (LOT)</span></li>
+                            <li><strong>출발:</strong> <span class="highlight">인천 → 바르샤바 → 프라하</span></li>
+                            <li><strong>귀국:</strong> <span class="highlight">바르샤바 → 인천</span></li>
+                            <li><strong>총 비행시간:</strong> <span class="highlight">약 11-12시간</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3>🎯 연수 목적</h3>
+                        <ul>
+                            <li><strong>주요 방문지:</strong> <span class="highlight">OSSOO (체코 정부부처 노동조합)</span></li>
+                            <li><strong>연수 내용:</strong> <span class="highlight">동유럽 선진 노조 시스템 학습</span></li>
+                            <li><strong>문화 체험:</strong> <span class="highlight">역사 유적지 및 문화재 관람</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="itinerary" class="section">
+                <h2>📅 상세 일정표</h2>
+                
+                <div class="flight-info">
+                    <h4>✈️ 항공 일정</h4>
+                    <ul>
+                        <li><strong>LO 098:</strong> 6/23 인천(11:20) → 바르샤바(17:10)</li>
+                        <li><strong>LO 529:</strong> 6/23 바르샤바(20:25) → 프라하(21:40)</li>
+                        <li><strong>LO 524:</strong> 6/26 프라하(09:55) → 바르샤바(11:05)</li>
+                        <li><strong>LO 099:</strong> 6/29 바르샤바(15:10) → 인천(09:30+1)</li>
+                    </ul>
+                </div>
+                
+                <table class="itinerary-table">
+                    <thead>
+                        <tr>
+                            <th>일차</th>
+                            <th>날짜</th>
+                            <th>도시</th>
+                            <th>주요 일정</th>
+                            <th>숙박</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="day-header">1일차</td>
+                            <td>6/23(월)</td>
+                            <td>인천→프라하</td>
+                            <td>
+                                • 08:10 인천공항 집결<br>
+                                • 11:20 인천 출발<br>
+                                • 바르샨바 경유 후 프라하 도착<br>
+                                • 호텔 체크인 및 석식
+                            </td>
+                            <td>프라하</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="day-header">2일차</td>
+                            <td>6/24(화)</td>
+                            <td>프라하</td>
+                            <td>
+                                • <strong>공식방문: OSSOO (정부부처 노동조합)</strong><br>
+                                • 프라하 성 & 흐라차티 광장<br>
+                                • 황금소로, 카를교<br>
+                                • 천문시계 & 틴 성당<br>
+                                • 프라하 야경 투어
+                            </td>
+                            <td>프라하</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="day-header">3일차</td>
+                            <td>6/25(수)</td>
+                            <td>프라하→드레스덴</td>
+                            <td>
+                                • 드레스덴 이동 및 도시 탐방<br>
+                                • 챔버 오페라 하우스<br>
+                                • 군주의 행렬 벽화<br>
+                                • 츠빙거궁전 & 가톨릭 궁정교회<br>
+                                • 프라하 귀환
+                            </td>
+                            <td>프라하</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="day-header">4일차</td>
+                            <td>6/26(목)</td>
+                            <td>프라하→크라쿠프</td>
+                            <td>
+                                • 06:30 프라하 공항 이동<br>
+                                • 바르샤바 경유 크라쿠프 이동<br>
+                                • 크라쿠프 광장 & 바벨성<br>
+                                • 지그문트 탑 관람
+                            </td>
+                            <td>크라쿠프</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="day-header">5일차</td>
+                            <td>6/27(금)</td>
+                            <td>크라쿠프</td>
+                            <td>
+                                • <strong>비엘리치카 소금광산 탐방</strong><br>
+                                • 타트라 산맥 자코파네 이동<br>
+                                • 푸니쿨라 구바우프카 등정<br>
+                                • 전통 목조 건물 관람
+                            </td>
+                            <td>크라쿠프</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="day-header">6일차</td>
+                            <td>6/28(토)</td>
+                            <td>크라쿠프→바르샤바</td>
+                            <td>
+                                • 바르샤바 이동<br>
+                                • 올드타운 골목 탐방<br>
+                                • 와지엔키 파크 궁전<br>
+                                • 비라누프 파크 궁전<br>
+                                • 바르샤바 과학문화궁전
+                            </td>
+                            <td>바르샤바</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="day-header">7일차</td>
+                            <td>6/29(일)</td>
+                            <td>바르샤바→인천</td>
+                            <td>
+                                • 쇼팽 발자취 탐방<br>
+                                • 11:30 공항 이동<br>
+                                • 15:10 바르샤바 출발<br>
+                                • 기내 숙박
+                            </td>
+                            <td>기내</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="day-header">8일차</td>
+                            <td>6/30(월)</td>
+                            <td>인천 도착</td>
+                            <td>• 09:30 인천국제공항 도착</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="destinations" class="section">
+                <h2>🏰 주요 방문지 상세 소개</h2>
+                
+                <div class="destination-grid">
+                    <div class="destination-card">
+                        <div class="destination-header">
+                            <h3>🇨🇿 체코 - 프라하</h3>
+                            <p>중유럽의 보헤미안 매력</p>
+                        </div>
+                        <div class="destination-body">
+                            <p><strong>기본 정보:</strong></p>
+                            <ul>
+                                <li>인구: 약 130만명</li>
+                                <li>화폐: 체코 코루나 (CZK)</li>
+                                <li>시차: 한국 대비 -8시간</li>
+                            </ul>
+                            
+                            <p><strong>주요 관광지:</strong></p>
+                            <ul class="attraction-list">
+                                <li>
+                                    <strong>프라하 성 (Prague Castle)</strong>
+                                    세계에서 가장 큰 고대 성곽 단지로 기네스북에 등재. 880년경 건설 시작되어 체코 역사의 상징. 성 비투스 대성당, 구왕궁, 황금소로 등 다양한 건축 양식이 공존하는 복합 문화재.
+                                </li>
+                                <li>
+                                    <strong>카를교 (Charles Bridge)</strong>
+                                    1357년 카를 4세 명령으로 건설된 길이 516m의 석조 다리. 30개의 바로크 양식 조각상으로 장식. 프라하 성과 구시가지를 연결하는 유일한 보행자 전용 다리로 거리 예술가들의 공연 장소.
+                                </li>
+                                <li>
+                                    <strong>프라하 천문시계 (Astronomical Clock)</strong>
+                                    1410년 제작된 세계에서 가장 오래된 작동 중인 천문시계. 매시 정각마다 12사도 인형이 움직이는 퍼포먼스로 유명. 중세 천문학의 정교함을 보여주는 걸작.
+                                </li>
+                                <li>
+                                    <strong>틴 성모 마리아 교회</strong>
+                                    14세기 고딕 양식 교회로 프라하 구시가 광장의 상징. 80m 높이의 쌍둥이 첨탑이 특징. 후스파 운동의 중심지였으며 체코 종교사에서 중요한 위치.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="destination-header">
+                            <h3>🇩🇪 독일 - 드레스덴</h3>
+                            <p>엘베강의 피렌체</p>
+                        </div>
+                        <div class="destination-body">
+                            <p><strong>기본 정보:</strong></p>
+                            <ul>
+                                <li>작센주 주도</li>
+                                <li>화폐: 유로 (EUR)</li>
+                                <li>시차: 한국 대비 -8시간</li>
+                            </ul>
+                            
+                            <p><strong>주요 관광지:</strong></p>
+                            <ul class="attraction-list">
+                                <li>
+                                    <strong>드레스덴 프라우엔교회 (Frauenkirche)</strong>
+                                    1726-1743년 건설된 바로크 양식 루터교 교회. 2차 대전으로 파괴되었다가 1994-2005년 국제 기부로 복원. 96m 높이의 "돌의 종" 돔이 특징. 전쟁과 평화의 상징.
+                                </li>
+                                <li>
+                                    <strong>츠빙거 궁전 (Zwinger Palace)</strong>
+                                    1710-1732년 아우구스트 왕이 건설한 독일 바로크 건축의 걸작. 현재 도자기 컬렉션과 구 거장 회화관 등 박물관으로 활용. 화려한 바로크 정원과 함께 드레스덴의 대표 명소.
+                                </li>
+                                <li>
+                                    <strong>군주의 행렬 (Fürstenzug)</strong>
+                                    길이 102m의 세계 최대 도자기 타일 벽화. 23,000개의 마이센 도자기로 작센 베틴 가문 800년 역사를 묘사. 2차 대전 폭격에서도 기적적으로 보존된 예술 작품.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="destination-header">
+                            <h3>🇵🇱 폴란드 - 크라쿠프</h3>
+                            <p>폴란드의 고도</p>
+                        </div>
+                        <div class="destination-body">
+                            <p><strong>기본 정보:</strong></p>
+                            <ul>
+                                <li>11-16세기 폴란드 수도</li>
+                                <li>화폐: 폴란드 즐로티 (PLN)</li>
+                                <li>시차: 한국 대비 -7시간</li>
+                            </ul>
+                            
+                            <p><strong>주요 관광지:</strong></p>
+                            <ul class="attraction-list">
+                                <li>
+                                    <strong>크라쿠프 구시가지</strong>
+                                    1978년 유네스코 세계문화유산 등재. 유럽 최대 중세 광장인 중앙 광장(Rynek Główny)과 직물회관(Sukiennice)이 중심. 2차 대전 피해를 거의 받지 않아 중세 모습 완벽 보존.
+                                </li>
+                                <li>
+                                    <strong>바벨 성 (Wawel Castle)</strong>
+                                    11세기부터 폴란드 왕의 거주지. 르네상스 양식의 성과 와벨 대성당으로 구성. 폴란드 역사와 문화의 상징적 장소로 국가 정체성의 핵심.
+                                </li>
+                                <li>
+                                    <strong>비엘리치카 소금광산</strong>
+                                    13세기부터 20세기까지 운영된 세계 최대 소금광산. 1978년 유네스코 세계문화유산 제1호 등재. 지하 327m, 총 길이 300km의 거대한 지하 도시. 소금으로 조각된 성 킹가 예배당이 하이라이트.
+                                </li>
+                                <li>
+                                    <strong>자코파네 (Zakopane)</strong>
+                                    '폴란드의 겨울 수도'로 불리는 타트라 산맥 기슭의 산악 휴양지. 전통적인 고랄(Góral) 문화와 목조 건축으로 유명. 푸니쿨라로 구바우프카 정상에서 타트라 산맥 파노라마 감상.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="destination-header">
+                            <h3>🇵🇱 폴란드 - 바르샤바</h3>
+                            <p>쇼팽의 도시</p>
+                        </div>
+                        <div class="destination-body">
+                            <p><strong>기본 정보:</strong></p>
+                            <ul>
+                                <li>폴란드 수도, 인구 180만명</li>
+                                <li>화폐: 폴란드 즐로티 (PLN)</li>
+                                <li>시차: 한국 대비 -7시간</li>
+                            </ul>
+                            
+                            <p><strong>주요 관광지:</strong></p>
+                            <ul class="attraction-list">
+                                <li>
+                                    <strong>문화과학궁전 (Palace of Culture and Science)</strong>
+                                    1955년 완공된 높이 237m, 42층의 폴란드 최고층 건물. 스탈린이 폴란드에 선물한 사회주의 건축의 상징. 30층 전망대에서 바르샤바 전경 조망 가능. 현재는 문화·과학의 중심지로 활용.
+                                </li>
+                                <li>
+                                    <strong>바르샤바 구시가지 (Old Town)</strong>
+                                    2차 대전으로 85% 파괴되었다가 완벽 복원된 기적의 도시. 1980년 유네스코 세계문화유산 등재. 잠코비 광장의 바르샤바 왕궁과 지그문트 3세 기념탑이 상징.
+                                </li>
+                                <li>
+                                    <strong>와지엔키 공원 (Łazienki Park)</strong>
+                                    바르샤바 최대 공원으로 18세기 조성. 물 위의 궁전(Palace on the Water)과 쇼팽 동상으로 유명. 여름 야외 쇼팽 콘서트가 열리는 음악의 성지. '바르샤바의 폐'로 불리는 녹색 휴식공간.
+                                </li>
+                                <li>
+                                    <strong>쇼팽 관련 명소</strong>
+                                    쇼팽 박물관에서 그의 생애와 음악 세계 체험. 성 십자가 성당에는 쇼팽의 심장이 안치. 바르샤바 곳곳에 쇼팽의 20년간 발자취가 남아있어 '쇼팽의 도시'로 불림.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="accommodation" class="section">
+                <h2>🏨 숙박 정보</h2>
+                
+                <div class="hotel-info">
+                    <h4>📍 프라하 (3박) - Clarion Congress Hotel Prague ⭐⭐⭐⭐</h4>
+                    <ul>
+                        <li><strong>주소:</strong> Freyova 33, Praha, Czech Republic</li>
+                        <li><strong>위치:</strong> 지하철 B라인 Vysocanska역 도보 1분</li>
+                        <li><strong>특징:</strong> 2008년 개관한 최신 호텔, 535개 객실, 프라하 중심가 접근 용이</li>
+                        <li><strong>시설:</strong> 에어컨, 무선인터넷, 미니바, 레스토랑, 풀장, 헬스장</li>
+                    </ul>
+                </div>
+                
+                <div class="hotel-info">
+                    <h4>📍 크라쿠프 (2박) - Novotel Krakow City West ⭐⭐⭐⭐</h4>
+                    <ul>
+                        <li><strong>주소:</strong> Al. Armii Krajowej 11, Cracow, Poland</li>
+                        <li><strong>위치:</strong> 크라쿠프 시내 서쪽, 중앙역에서 지하철 4정거장</li>
+                        <li><strong>특징:</strong> 모던한 시설과 편안한 객실, 비즈니스 여행객에게 인기</li>
+                        <li><strong>시설:</strong> Wi-Fi, 레스토랑, 사우나, 실내 수영장, 피트니스센터</li>
+                    </ul>
+                </div>
+                
+                <div class="hotel-info">
+                    <h4>📍 바르샤바 (2박) - Hotel Arche Krakowska ⭐⭐⭐⭐</h4>
+                    <ul>
+                        <li><strong>주소:</strong> Aleja Krakowska 237, Warszawa, Poland</li>
+                        <li><strong>위치:</strong> 바르샤바 서남쪽, 쇼팽공항 접근성 우수</li>
+                        <li><strong>특징:</strong> 현대적 시설과 편리한 교통, 공항 접근 용이</li>
+                        <li><strong>시설:</strong> 피트니스센터, 레스토랑, 회의실, 사우나</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="preparation" class="section">
+                <h2>🎒 준비사항 및 유의사항</h2>
+                
+                <div class="preparation-grid">
+                    <div class="preparation-card">
+                        <h4>📄 필수 서류</h4>
+                        <ul>
+                            <li>여권 (유효기간 6개월 이상)</li>
+                            <li>운전면허증 또는 주민등록증</li>
+                            <li>해외여행자보험 증서</li>
+                            <li>항공권 및 호텔 바우처</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="preparation-card">
+                        <h4>💰 환전 및 결제</h4>
+                        <ul>
+                            <li><strong>체코:</strong> 코루나 (1 CZK ≈ 60원)</li>
+                            <li><strong>독일:</strong> 유로 (1 EUR ≈ 1,500원)</li>
+                            <li><strong>폴란드:</strong> 즐로티 (1 PLN ≈ 370원)</li>
+                            <li>신용카드 사용 가능, 현금 소지 권장</li>
+                            <li>팁 문화: 5-10% 정도</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="preparation-card">
+                        <h4>🧳 복장 및 소지품</h4>
+                        <ul>
+                            <li>편안한 걷기 좋은 신발 필수</li>
+                            <li>6월 날씨: 평균 15-25도 (일교차 큰 편)</li>
+                            <li>가벼운 외투 및 우산 준비</li>
+                            <li>카메라 및 충전기</li>
+                            <li>개인 상비약 (소화제, 감기약 등)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="preparation-card">
+                        <h4>📱 통신 및 전력</h4>
+                        <ul>
+                            <li>국제로밍 또는 현지 유심칩</li>
+                            <li>전압: 220V (유럽형 어댑터 필요)</li>
+                            <li>휴대용 배터리 권장</li>
+                            <li>번역 앱 설치 권장</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="preparation-card">
+                        <h4>🚫 주의사항</h4>
+                        <ul>
+                            <li>소매치기 주의 (특히 관광지)</li>
+                            <li>일요일 상점 휴무 (독일)</li>
+                            <li>물값이 비싼 편 (생수 준비)</li>
+                            <li>흡연 제한 구역 많음</li>
+                            <li>단체 행동 준수</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="preparation-card">
+                        <h4>🍽️ 음식 문화</h4>
+                        <ul>
+                            <li><strong>체코:</strong> 굴라시, 트르들로, 체코 맥주</li>
+                            <li><strong>독일:</strong> 소시지, 슈니첼, 프레첼</li>
+                            <li><strong>폴란드:</strong> 피에로기, 비고스, 보드카</li>
+                            <li>입맛에 맞지 않을 경우 대비해 컵라면, 고추장 등 준비</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>⚠️ 특별 유의사항</h4>
+                    <ul>
+                        <li><strong>비엘리치카 소금광산:</strong> 지하 327m까지 내려가므로 편안한 신발 필수. 내부 온도 14도 유지</li>
+                        <li><strong>프라하 성:</strong> 입장권 사전 구매 권장, 대기시간 길 수 있음</li>
+                        <li><strong>드레스덴:</strong> 화요일 일부 박물관 휴관 주의</li>
+                        <li><strong>단체 여행:</strong> 가이드 지시 사항 준수, 정해진 시간 엄수</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="cost" class="section">
+                <h2>💼 비용 정보</h2>
+                
+                <div class="cost-breakdown">
+                    <h3>총 경비 내역</h3>
+                    <div class="cost-item">
+                        <span>1인 기본 비용</span>
+                        <span>₩4,100,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>싱글룸 추가 비용</span>
+                        <span>₩480,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>총 예상 비용 (17명 기준)</span>
+                        <span>₩69,700,000</span>
+                    </div>
+                </div>
+                
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3>💸 포함 사항</h3>
+                        <ul>
+                            <li>왕복 항공료 및 공항세</li>
+                            <li>4성급 호텔 숙박 (2인 1실 기준)</li>
+                            <li>전 일정 식사 (조식 7회, 중식 7회, 석식 6회)</li>
+                            <li>관광지 입장료</li>
+                            <li>전용 차량 및 가이드</li>
+                            <li>해외여행자보험</li>
+                            <li>1인 1리시버 서비스</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3>💳 불포함 사항</h3>
+                        <ul>
+                            <li>개인 경비 및 쇼핑</li>
+                            <li>선택관광 비용</li>
+                            <li>음료수 및 주류</li>
+                            <li>초과 수하물 요금</li>
+                            <li>개인 여행자보험</li>
+                            <li>기타 개인적 지출</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="highlight-box">
+                <h4>📞 비상 연락처</h4>
+                <ul>
+                    <li><strong>여행사:</strong> 투어게락 (연락처 별도 제공)</li>
+                    <li><strong>현지 가이드:</strong> 각 도시별 한국어 가이드 배정</li>
+                    <li><strong>한국 영사관:</strong> 각국 영사관 연락처 별도 안내</li>
+                    <li><strong>응급상황:</strong> 유럽 공통 응급전화 112</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
