@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임금 관련 대법원 전원합의체 판례 4가지 분석</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            transform: translateX(-50%);
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            padding: 30px;
+            position: relative;
+            width: calc(50% - 40px);
+        }
+        
+        .case-card:nth-child(odd) {
+            margin-left: 0;
+        }
+        
+        .case-card:nth-child(even) {
+            margin-left: calc(50% + 40px);
+        }
+        
+        .case-card::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .case-card:nth-child(odd)::before {
+            right: -50px;
+        }
+        
+        .case-card:nth-child(even)::before {
+            left: -50px;
+        }
+        
+        .case-year {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .case-title {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .case-number {
+            background: #ecf0f1;
+            color: #7f8c8d;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .case-content {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e74c3c;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .connections {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .connections h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .connection-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .connection-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .connection-title {
+            color: #2980b9;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        
+        .evolution-chart {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .chart-title {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .evolution-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .step {
+            flex: 1;
+            padding: 20px;
+            margin: 0 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #3498db;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .step:last-child::after {
+            display: none;
+        }
+        
+        .step-year {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .step-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .conclusion h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .conclusion p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .case-card {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .case-card::before {
+                left: -50px !important;
+            }
+            
+            .evolution-steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                margin: 10px 0;
+            }
+            
+            .step::after {
+                content: '↓';
+                right: 50%;
+                top: 100%;
+                transform: translateX(50%);
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚖️ 임금 관련 대법원 전원합의체 판례 분석</h1>
+            <p>한국 노동법 발전의 30년 궤적 (1995-2024)</p>
+        </div>
+
+        <div class="timeline">
+            <div class="case-card">
+                <div class="case-year">1995년</div>
+                <h3 class="case-title">🏛️ 쟁의행위 중 임금지급 기준 판결</h3>
+                <div class="case-number">대법원 1995. 12. 21. 선고 94다26721 전원합의체 판결</div>
+                
+                <div class="case-content">
+                    <div class="section-title">📋 핵심 내용</div>
+                    <div class="highlight">
+                        <strong>무노동 무임금 원칙 확립</strong><br>
+                        모든 임금은 근로의 대가로서 '근로자가 사용자의 지휘를 받으며 근로를 제공하는 것에 대한 보수'를 의미하므로, 현실의 근로 제공을 전제로 하지 않고 단순히 근로자로서의 지위에 기하여 발생하는 이른바 '생활보장적 임금'은 있을 수 없다고 판시
+                    </div>
+                    
+                    <div class="section-title">⚡ 주요 의의</div>
+                    <p>• 쟁의행위 기간 중 임금청구권 발생 여부의 기준 제시<br>
+                    • 임금의 본질을 '근로 제공의 대가'로 명확히 규정<br>
+                    • 후에 통상임금과 평균임금 개념 발전의 이론적 토대 제공</p>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-year">2013년</div>
+                <h3 class="case-title">💰 갑을오토텍 통상임금 판결</h3>
+                <div class="case-number">대법원 2013. 12. 18. 선고 2012다89399 전원합의체 판결</div>
+                
+                <div class="case-content">
+                    <div class="section-title">📋 핵심 내용</div>
+                    <div class="highlight">
+                        <strong>통상임금의 3요소 확립</strong><br>
+                        통상임금을 "소정근로의 대가로서 정기적·일률적·고정적으로 지급되는 임금"으로 정의하며, '정기성', '일률성', '고정성'을 통상임금의 요건으로 제시
+                    </div>
+                    
+                    <div class="section-title">⚡ 주요 의의</div>
+                    <p>• 임금 지급시기를 월간에서 연간으로 확대<br>
+                    • 연간 단위 상여금의 통상임금 인정<br>
+                    • 재직조건부 상여금은 '고정성' 부족으로 통상임금에서 제외<br>
+                    • 우리나라 임금체계의 대대적 변화 견인</p>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-year">2023년</div>
+                <h3 class="case-title">👥 공무직 근로자 차별 판결</h3>
+                <div class="case-number">대법원 2023. 9. 21. 선고 2016다255941 전원합의체 판결</div>
+                
+                <div class="case-content">
+                    <div class="section-title">📋 핵심 내용</div>
+                    <div class="highlight">
+                        <strong>공무원-공무직 차별 한계 설정</strong><br>
+                        국도관리원(공무직 근로자)들이 공무원과 달리 정근수당, 성과상여금 등을 지급받지 못한 것이 근로기준법 제6조가 금지하는 '차별적 처우'에 해당하지 않는다고 판결 (7대5 판결)
+                    </div>
+                    
+                    <div class="section-title">⚡ 주요 의의</div>
+                    <p>• 무기계약직과 공무원 간 차별 문제에 대한 첫 전원합의체 판단<br>
+                    • 공무원과 공무직은 본질적으로 다른 집단이라는 입장 확립<br>
+                    • 5명 대법관의 반대의견으로 향후 판례 변경 가능성 시사<br>
+                    • 공공부문 임금 차별 문제의 복잡성 드러냄</p>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-year">2024년</div>
+                <h3 class="case-title">🔄 통상임금 고정성 폐기 판결</h3>
+                <div class="case-number">대법원 2024. 12. 19. 선고 2020다247190, 2023다302838 전원합의체 판결</div>
+                
+                <div class="case-content">
+                    <div class="section-title">📋 핵심 내용</div>
+                    <div class="highlight">
+                        <strong>통상임금 개념의 혁신적 재정립</strong><br>
+                        11년 만에 통상임금 판례를 변경하여 '고정성' 요건을 완전 폐기. 이제 통상임금은 "소정근로의 대가로서 정기적, 일률적으로 지급하기로 정한 임금"으로 정의
+                    </div>
+                    
+                    <div class="section-title">⚡ 주요 의의</div>
+                    <p>• 재직조건부 상여금과 근무일수 조건부 상여금의 통상임금 인정<br>
+                    • 기업의 우회적 통상임금 회피 방지<br>
+                    • 장래효 적용으로 법적 안정성 확보<br>
+                    • 전원일치 의견으로 법리의 명확성 제고</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="evolution-chart">
+            <h2 class="chart-title">⏳ 임금법리의 진화 과정</h2>
+            <div class="evolution-steps">
+                <div class="step">
+                    <div class="step-year">1995년</div>
+                    <div class="step-desc">무노동 무임금<br>원칙 확립</div>
+                </div>
+                <div class="step">
+                    <div class="step-year">2013년</div>
+                    <div class="step-desc">통상임금 3요소<br>(정기성·일률성·고정성)</div>
+                </div>
+                <div class="step">
+                    <div class="step-year">2023년</div>
+                    <div class="step-desc">공공부문 임금차별<br>한계 설정</div>
+                </div>
+                <div class="step">
+                    <div class="step-year">2024년</div>
+                    <div class="step-desc">고정성 폐기<br>통상임금 확대</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="connections">
+            <h2>🔗 4가지 판례의 연결관계 분석</h2>
+            
+            <div class="connection-item">
+                <div class="connection-title">1. 시대적 연속성: 노동법 발전의 30년</div>
+                <p>1995년 무노동 무임금 원칙에서 시작하여 2024년 통상임금 고정성 폐기까지, 한국 노동법이 근로자 권리 보호를 위해 점진적으로 발전해온 30년간의 궤적을 보여줍니다. 특히 2013년과 2024년의 통상임금 판례는 11년간의 법리 성숙 과정을 나타냅니다.</p>
+            </div>
+            
+            <div class="connection-item">
+                <div class="connection-title">2. 임금 평등과 차별 해소라는 공통 목적</div>
+                <p>4가지 판례 모두 근로자의 임금 권리 보장과 차별 해소라는 공통된 목적을 가지고 있습니다. 1995년과 통상임금 판결들은 기업의 우회적 임금 회피를 방지하고, 2023년 공무직 판결은 공공부문 내 임금 차별 문제를 다뤘습니다.</p>
+            </div>
+            
+            <div class="connection-item">
+                <div class="connection-title">3. 법리 적용의 점진적 확장</div>
+                <p><strong>1995년</strong>: 임금의 근본 개념 정립 → <strong>2013년</strong>: 통상임금 범위 확대하되 고정성 유지 → <strong>2023년</strong>: 공무원-공무직 간 차별 인정 한계 → <strong>2024년</strong>: 고정성 완전 폐기로 통상임금 범위 대폭 확대</p>
+            </div>
+            
+            <div class="connection-item">
+                <div class="connection-title">4. 사회 안정성 vs 근로자 권리 보호의 균형</div>
+                <p>4가지 판례 모두 근로자의 권리 확대와 사회적 안정성 사이의 균형을 추구했습니다. 특히 2024년 통상임금 판결의 장래효 적용과 2023년 공무직 판결의 신중한 접근이 이러한 균형 감각을 잘 보여줍니다.</p>
+            </div>
+            
+            <div class="connection-item">
+                <div class="connection-title">5. 전원합의체 판결의 중요성</div>
+                <p>4가지 판례 모두 전원합의체 판결로 선고되어 중요한 법리 변경이나 사회적 파급효과를 고려한 신중한 판단이었습니다. 2023년 공무직 판결의 7대5 결과와 2024년 통상임금 판결의 전원일치는 각각 쟁점의 첨예함과 법리의 명확성을 나타냅니다.</p>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <h2>🎯 결론</h2>
+            <p>
+                4가지 전원합의체 판례는 <strong>한국 노동법에서 임금 관련 법리의 체계적 발전</strong>을 보여주며, 
+                근로자 권리 보호와 사회적 안정성 확보라는 두 가치 사이의 균형점을 찾아가는 과정을 잘 보여주고 있습니다. 
+                <br><br>
+                특히 1995년 무노동 무임금 원칙부터 2024년 통상임금 고정성 폐기까지의 30년간 변화는 
+                <strong>한국 사회의 노동 환경 변화와 근로자 권익 신장의 역사</strong>를 압축적으로 보여주는 중요한 이정표라 할 수 있습니다.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
