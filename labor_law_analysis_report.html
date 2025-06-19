@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국연구재단 성과연봉 규정 개정 법적 쟁점 분석</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        .header p {
+            margin: 15px 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        .content {
+            padding: 40px;
+        }
+        .alert-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            position: relative;
+        }
+        .section h2::before {
+            content: '⚖️';
+            margin-right: 10px;
+        }
+        .section h3 {
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #e8f4f8, #d1ecf1);
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(52,152,219,0.1);
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd, #fce4ab);
+            border-left: 5px solid #f39c12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(243,156,18,0.1);
+        }
+        .danger-box {
+            background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(231,76,60,0.1);
+        }
+        .success-box {
+            background: linear-gradient(135deg, #d5f4e6, #a8e6cf);
+            border-left: 5px solid #27ae60;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(39,174,96,0.1);
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px solid #6c757d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(108,117,125,0.1);
+        }
+        .code-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            box-shadow: 0 3px 10px rgba(44,62,80,0.3);
+        }
+        .code-box code {
+            color: #1abc9c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e8f4f8;
+            transition: background-color 0.3s ease;
+        }
+        .risk-meter {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .risk-item {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .risk-item:hover {
+            transform: translateY(-5px);
+        }
+        .risk-high {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+        .risk-medium {
+            background: linear-gradient(135deg, #ffa726, #ff8f00);
+            color: white;
+        }
+        .risk-low {
+            background: linear-gradient(135deg, #66bb6a, #43a047);
+            color: white;
+        }
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+        .check-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 40px;
+        }
+        .check-list li::before {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+        .check-list .positive::before {
+            content: '✅';
+        }
+        .check-list .negative::before {
+            content: '❌';
+        }
+        .check-list .warning::before {
+            content: '⚠️';
+        }
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        .action-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .action-card.immediate {
+            border-color: #e74c3c;
+            background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+        }
+        .action-card.longterm {
+            border-color: #3498db;
+            background: linear-gradient(135deg, #f8fbff, #e8f4f8);
+        }
+        .action-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .conclusion {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+        }
+        .conclusion h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>한국연구재단 성과연봉 규정 개정</h1>
+            <h1>법적 쟁점 분석 보고서</h1>
+            <p>노동조합 제기 법적 이슈에 대한 전문적 검토</p>
+        </div>
+
+        <div class="content">
+            <div class="alert-banner">
+                🚨 긴급 검토 필요: 현행 개정규정의 법적 효력에 중대한 하자 발견
+            </div>
+
+            <div class="section">
+                <h2>노동조합 제기 핵심 쟁점</h2>
+                <div class="highlight-box">
+                    <h3><span class="emoji">📋</span>노조 주요 의견</h3>
+                    <ol>
+                        <li><strong>성과연봉의 통상임금성</strong>: 통상임금에 해당하는 성과연봉의 일방적 삭감</li>
+                        <li><strong>근로기준법 제95조 위반</strong>: 근로자 동의 없는 불리한 취업규칙 변경</li>
+                        <li><strong>원천무효 주장</strong>: 법률자문을 통해 무효 확인</li>
+                        <li><strong>노사합의 한계</strong>: 합의가 있어도 근기법 위반 여부 검토 필요</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>법적 쟁점 상세 분석</h2>
+
+                <h3><span class="emoji">🔍</span>1. 성과연봉의 통상임금성 검토</h3>
+                <div class="info-box">
+                    <strong>통상임금 판단기준 (대법원 판례)</strong><br>
+                    <ul class="check-list">
+                        <li class="positive"><strong>정기성</strong>: 정기적으로 지급되는가</li>
+                        <li class="positive"><strong>일률성</strong>: 모든 근로자에게 동일한 조건으로 지급되는가</li>
+                        <li class="warning"><strong>고정성</strong>: 근로제공의 대가로 확정적으로 지급되는가</li>
+                    </ul>
+                </div>
+
+                <h4>한국연구재단 성과연봉의 특성 분석</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>판단기준</th>
+                            <th>현황</th>
+                            <th>통상임금성</th>
+                            <th>근거</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>정기성</strong></td>
+                            <td>매월 최저등급으로 분할지급</td>
+                            <td style="color: #27ae60; font-weight: bold;">✅ 인정</td>
+                            <td>매월 정기적 지급</td>
+                        </tr>
+                        <tr>
+                            <td><strong>일률성</strong></td>
+                            <td>동일 직급 내 동일한 지급조건</td>
+                            <td style="color: #27ae60; font-weight: bold;">✅ 인정</td>
+                            <td>직급별 통일된 기준</td>
+                        </tr>
+                        <tr>
+                            <td><strong>고정성</strong></td>
+                            <td>평가결과에 따른 재정산</td>
+                            <td style="color: #f39c12; font-weight: bold;">⚠️ 제한적</td>
+                            <td>변동 요소 존재</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <strong>결론</strong>: 성과연봉 중 <strong>매월 지급되는 부분</strong>은 통상임금성이 <strong>강하게 인정</strong>될 가능성이 높습니다.
+                </div>
+
+                <h3><span class="emoji">⚖️</span>2. 근로기준법 제95조 위반 여부</h3>
+                <div class="warning-box">
+                    <strong>근로기준법 제95조 (취업규칙의 변경)</strong><br>
+                    "사용자가 취업규칙을 근로자에게 불리하게 변경하는 경우에는 그 사업 또는 사업장에 근로자의 과반수로 조직된 노동조합이 있는 경우에는 그 노동조합... 의 동의를 받아야 한다."
+                </div>
+
+                <h4>위반 요소 체크리스트</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>내용</th>
+                            <th>현황</th>
+                            <th>판단</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>불리한 변경</strong></td>
+                            <td>기존 지급 → 특정사유 미지급</td>
+                            <td>성과연봉 지급 제외 신설</td>
+                            <td style="color: #e74c3c; font-weight: bold;">✅ 명백한 불리한 변경</td>
+                        </tr>
+                        <tr>
+                            <td><strong>동의 주체</strong></td>
+                            <td>과반수 조직 노동조합</td>
+                            <td>한국연구재단지부 존재</td>
+                            <td style="color: #e74c3c; font-weight: bold;">✅ 노조 동의 필요</td>
+                        </tr>
+                        <tr>
+                            <td><strong>동의 절차</strong></td>
+                            <td>노조의 명시적 동의</td>
+                            <td>의견수렴만 실시</td>
+                            <td style="color: #e74c3c; font-weight: bold;">❌ 절차 위반</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3><span class="emoji">🤝</span>3. 노사합의와 근기법 제95조의 관계</h3>
+                <div class="highlight-box">
+                    <strong>핵심 쟁점</strong>: 노사합의가 있어도 근로기준법 제95조를 준수해야 하는가?
+                </div>
+
+                <div class="action-grid">
+                    <div class="action-card">
+                        <h4>🔒 강행법규의 성격</h4>
+                        <div class="code-box">
+근로기준법 제95조 = 강행법규
+→ 당사자 합의로도 배제 불가
+→ 노사합의 < 근로기준법 준수
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <h4>⚖️ 판례 입장</h4>
+                        <div class="code-box">
+대법원: "취업규칙 변경 시 근로기준법 제95조는 
+반드시 준수해야 할 절차적 요건"
+→ 노사합의 여부와 무관하게 법정 절차 필수
+                        </div>
+                    </div>
+                </div>
+
+                <h4>실무 적용 원칙</h4>
+                <div class="warning-box">
+                    <strong>노사합의 체결 시에도:</strong>
+                    <ol>
+                        <li>근기법 제95조 동의절차 별도 진행 <strong>OR</strong></li>
+                        <li>합의서에 제95조 동의 조항 명시 필요</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>현재 상황의 법적 위험도 평가</h2>
+                <div class="risk-meter">
+                    <div class="risk-item risk-high">
+                        <h4>🚨 원천무효 위험</h4>
+                        <p><strong>위험도: 매우 높음</strong></p>
+                        <p>근로기준법 제95조 명백 위반으로 인한 전체 무효 가능성</p>
+                    </div>
+                    <div class="risk-item risk-high">
+                        <h4>💰 통상임금 침해</h4>
+                        <p><strong>위험도: 높음</strong></p>
+                        <p>성과연봉의 통상임금성 인정 시 임금 직불 원칙 위반</p>
+                    </div>
+                    <div class="risk-item risk-medium">
+                        <h4>📅 소급적용 위법</h4>
+                        <p><strong>위험도: 중간</strong></p>
+                        <p>기존 근로계약 조건의 일방적 변경, 법률불소급 원칙 위반</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>단계별 대응방안</h2>
+
+                <h3><span class="emoji">🚨</span>즉시 조치사항</h3>
+                <div class="action-grid">
+                    <div class="action-card immediate">
+                        <h4>1. 현재 개정규정의 효력 중단</h4>
+                        <ul>
+                            <li><strong>근거</strong>: 근로기준법 제95조 위반으로 인한 무효</li>
+                            <li><strong>조치</strong>: 피해자에 대한 성과연봉 즉시 지급</li>
+                            <li><strong>기간</strong>: 즉시 시행</li>
+                        </ul>
+                    </div>
+                    <div class="action-card immediate">
+                        <h4>2. 적법한 재개정 절차 시행</h4>
+                        <ol>
+                            <li>노동조합과 사전 협의</li>
+                            <li>합리적 대안 마련</li>
+                            <li>근로기준법 제95조에 따른 동의절차</li>
+                            <li>새로운 규정 시행</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <h3><span class="emoji">🔄</span>장기적 해결방안</h3>
+                <div class="action-grid">
+                    <div class="action-card longterm">
+                        <h4>1. 차등 적용방식 도입</h4>
+                        <div class="code-box">
+전액 미지급 → 차등 감액 방식
+- 중대 비위: 50-70% 감액
+- 일반 징계: 20-30% 감액  
+- 성과연봉 종류별 차등 적용
+                        </div>
+                    </div>
+                    <div class="action-card longterm">
+                        <h4>2. 법적 안정성 확보</h4>
+                        <ul>
+                            <li>노동법 전문가 자문</li>
+                            <li>통상임금성 정밀 검토</li>
+                            <li>단체협약 개정을 통한 근거 마련</li>
+                            <li>판례 동향 지속 모니터링</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion">
+                <h3><span class="emoji">📋</span>최종 법적 의견</h3>
+                <p><strong>노조의 법률자문 의견이 법적으로 타당합니다</strong></p>
+                <div style="text-align: left; margin-top: 20px;">
+                    <ul class="check-list" style="color: white;">
+                        <li class="positive"><strong>성과연봉의 통상임금성</strong>: 매월 지급분은 통상임금으로 볼 가능성 높음</li>
+                        <li class="positive"><strong>근기법 제95조 위반</strong>: 명백한 절차 위반으로 원천무효 가능성</li>
+                        <li class="positive"><strong>노사합의 효력</strong>: 합의가 있어도 근기법 준수는 별개 문제</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px; margin-top: 20px;">
+                    <strong>권고사항</strong>: 현재 개정규정을 <strong>즉시 중단</strong>하고, 적법한 절차를 통해 <strong>재협상</strong>을 진행해야 합니다. 
+                    그렇지 않을 경우 노동위원회 구제신청이나 법정 다툼에서 <strong>패소 가능성이 매우 높습니다</strong>.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>본 분석은 현행 법령과 판례를 기준으로 작성되었으며, 구체적인 법적 조치 전 전문가와의 추가 상담을 권장합니다.</p>
+            <p>작성일: 2025년 6월 19일</p>
+        </div>
+    </div>
+</body>
+</html>
