@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체코 역사 종합 보고서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #11457e 0%, #d53e4f 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #11457e 0%, #d53e4f 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '🇨🇿';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #11457e, #d53e4f);
+            transform: translateX(-50%);
+        }
+        
+        .era-section {
+            position: relative;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 45%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .era-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .era-section:nth-child(odd) {
+            margin-left: 0;
+        }
+        
+        .era-section:nth-child(even) {
+            margin-left: 55%;
+        }
+        
+        .era-section::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #11457e;
+            border-radius: 50%;
+            top: 30px;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #11457e;
+        }
+        
+        .era-section:nth-child(odd)::before {
+            right: -60px;
+        }
+        
+        .era-section:nth-child(even)::before {
+            left: -60px;
+        }
+        
+        .era-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .era-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #11457e, #d53e4f);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .era-title {
+            flex: 1;
+        }
+        
+        .era-title h2 {
+            color: #11457e;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .era-period {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .era-content {
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .era-content h3 {
+            color: #11457e;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+        
+        .era-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .era-content li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-left: 4px solid #11457e;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .key-events {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .key-events h4 {
+            color: #2d5016;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #11457e;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .data-source {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 40px;
+            font-size: 0.9rem;
+        }
+        
+        .modern-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .modern-section .era-title h2,
+        .modern-section .era-content h3 {
+            color: white;
+        }
+        
+        .modern-section::before {
+            background: #667eea;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+        
+        .tragic-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+        }
+        
+        .tragic-section .era-title h2,
+        .tragic-section .era-content h3 {
+            color: white;
+        }
+        
+        .tragic-section::before {
+            background: #ff6b6b;
+            box-shadow: 0 0 0 3px #ff6b6b;
+        }
+        
+        .communist-section {
+            background: linear-gradient(135deg, #e55039 0%, #c0392b 100%);
+            color: white;
+        }
+        
+        .communist-section .era-title h2,
+        .communist-section .era-content h3 {
+            color: white;
+        }
+        
+        .communist-section::before {
+            background: #e55039;
+            box-shadow: 0 0 0 3px #e55039;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .era-section {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .era-section::before {
+                left: -50px !important;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🇨🇿 체코 공화국</h1>
+            <div class="subtitle">천년 왕국 보헤미아에서 현대 민주주의까지의 역사</div>
+        </div>
+        
+        <div class="timeline">
+            <!-- 고대/로마시대 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">🏛️</div>
+                    <div class="era-title">
+                        <h2>고대 및 로마시대</h2>
+                        <div class="era-period">기원전 4세기 ~ 서기 6세기</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>현재 체코 지역에 최초로 정착한 것은 켈트족이었으며, 특히 보이이족(Boii)이 이 땅에 '보헤미아'라는 이름을 남겼습니다.</p>
+                    
+                    <h3>주요 민족들</h3>
+                    <ul>
+                        <li><strong>켈트족 보이이:</strong> 기원전 4세기경 정착, '보이오하이뭄(Boiohaemum)' → 보헤미아</li>
+                        <li><strong>게르만족:</strong> 마르코만니족, 콰디족 등이 켈트족을 밀어내고 정착</li>
+                        <li><strong>로마의 영향:</strong> 직접 지배는 받지 않았으나 문화적 교류 존재</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>보헤미아의 어원:</strong> 라틴어 '보이오하이뭄(Boiohaemum)'은 '보이이족의 땅'이라는 뜻으로, 현재까지도 체코 서부 지역을 가리키는 이름으로 사용되고 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 슬라브족 정착 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">🌲</div>
+                    <div class="era-title">
+                        <h2>슬라브족 정착기</h2>
+                        <div class="era-period">6세기 ~ 10세기</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>게르만족이 이주한 후 서슬라브족이 보헤미아와 모라비아 지역에 정착하여 최초의 슬라브 국가들을 건설했습니다.</p>
+                    
+                    <h3>초기 슬라브 국가들</h3>
+                    <ul>
+                        <li><strong>사모의 제국 (623-658):</strong> 프랑크 상인 사모가 건설한 최초의 슬라브 연합</li>
+                        <li><strong>대모라비아 (833-907):</strong> 9세기 중앙유럽 최강국</li>
+                        <li><strong>기독교 전래:</strong> 성 키릴과 메토디우스의 선교 활동</li>
+                    </ul>
+                    
+                    <div class="key-events">
+                        <h4>🌟 문화적 성취</h4>
+                        <p>대모라비아는 슬라브 문자와 전례를 개발하여 동유럽 슬라브 문화의 기반을 마련했습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 중세 왕국 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">👑</div>
+                    <div class="era-title">
+                        <h2>중세 보헤미아 왕국</h2>
+                        <div class="era-period">10세기 ~ 1526년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>프제미슬 왕조가 보헤미아 공국을 건설하고, 후에 왕국으로 발전시켜 중앙유럽의 강국으로 성장했습니다.</p>
+                    
+                    <h3>프제미슬 왕조 (10-14세기)</h3>
+                    <ul>
+                        <li><strong>성 바츨라프:</strong> 보헤미아의 수호성인, 기독교 정착에 기여</li>
+                        <li><strong>오타카르 2세:</strong> "철과 금의 왕", 오스트리아까지 영토 확장</li>
+                        <li><strong>신성로마제국:</strong> 보헤미아 왕이 선제후로서 황제 선출에 참여</li>
+                    </ul>
+                    
+                    <h3>룩셈부르크 왕조와 황금시대</h3>
+                    <ul>
+                        <li><strong>카를 4세 (1346-1378):</strong> 신성로마 황제, 프라하를 유럽의 중심으로</li>
+                        <li><strong>프라하 대학 (1348):</strong> 알프스 이북 최초의 대학 설립</li>
+                        <li><strong>황금칙서:</strong> 신성로마제국의 기본법 제정</li>
+                    </ul>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">1348년</div>
+                            <div class="stat-label">프라하 대학 설립</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4명</div>
+                            <div class="stat-label">신성로마 황제 배출</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1344년</div>
+                            <div class="stat-label">프라하 대주교청</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 후스 전쟁 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">⚔️</div>
+                    <div class="era-title">
+                        <h2>후스 전쟁과 종교개혁</h2>
+                        <div class="era-period">1415년 ~ 1620년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>얀 후스의 종교개혁 사상이 보헤미아에 깊이 뿌리내리며, 후스파와 가톨릭 간의 오랜 갈등이 시작되었습니다.</p>
+                    
+                    <h3>얀 후스와 종교개혁</h3>
+                    <ul>
+                        <li><strong>얀 후스 (1370-1415):</strong> 프라하 대학 총장, 교회 개혁 주창</li>
+                        <li><strong>콘스탄츠 공의회:</strong> 1415년 화형으로 순교</li>
+                        <li><strong>후스 전쟁 (1419-1436):</strong> 십자군 5차례 격퇴</li>
+                    </ul>
+                    
+                    <h3>후스파의 승리와 영향</h3>
+                    <ul>
+                        <li><strong>바젤 협약 (1436):</strong> 후스파 종교의 공식 인정</li>
+                        <li><strong>이르지 포데브라디:</strong> 후스파 출신 보헤미아 왕</li>
+                        <li><strong>종교적 관용:</strong> 유럽 최초의 종교 다원주의</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>역사적 의의:</strong> 후스 전쟁은 루터보다 100년 앞선 종교개혁이었으며, 체코인의 민족의식 형성에 결정적 역할을 했습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 합스부르크 지배 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">👑</div>
+                    <div class="era-title">
+                        <h2>합스부르크 지배시대</h2>
+                        <div class="era-period">1526년 ~ 1918년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>합스부르크 왕조의 지배 하에서 보헤미아는 자치권을 잃고 오스트리아 제국의 한 지방으로 전락했습니다.</p>
+                    
+                    <h3>백산 전투와 재가톨릭화</h3>
+                    <ul>
+                        <li><strong>30년 전쟁 (1618-1648):</strong> 프로테스탄트 봉기와 패배</li>
+                        <li><strong>백산 전투 (1620):</strong> 보헤미아 독립의 꿈 좌절</li>
+                        <li><strong>강제 재가톨릭화:</strong> 프로테스탄트 추방과 독일화 정책</li>
+                    </ul>
+                    
+                    <h3>18-19세기 민족부흥운동</h3>
+                    <ul>
+                        <li><strong>체코어 부흥:</strong> 요제프 융만, 요제프 도브로프스키의 언어학 연구</li>
+                        <li><strong>문학 르네상스:</strong> 얀 콜라르, 프란티셰크 팔라츠키</li>
+                        <li><strong>1848년 혁명:</strong> 팬슬라브 회의와 자치 요구</li>
+                    </ul>
+                    
+                    <div class="key-events">
+                        <h4>🎭 문화적 각성</h4>
+                        <p>19세기 말 프라하는 '백탑의 도시'로 불리며 중앙유럽의 문화 중심지로 부상했습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1차 대전과 독립 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">🕊️</div>
+                    <div class="era-title">
+                        <h2>체코슬로바키아 독립</h2>
+                        <div class="era-period">1918년 ~ 1938년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>제1차 세계대전 종료와 함께 토마시 마사리크의 노력으로 체코슬로바키아가 독립국가로 탄생했습니다.</p>
+                    
+                    <h3>독립 과정</h3>
+                    <ul>
+                        <li><strong>토마시 마사리크:</strong> 철학자 출신 초대 대통령</li>
+                        <li><strong>체코슬로바키아 군단:</strong> 서부전선과 러시아에서 활약</li>
+                        <li><strong>1918년 10월 28일:</strong> 프라하에서 독립 선언</li>
+                    </ul>
+                    
+                    <h3>제1공화국 (1918-1938)</h3>
+                    <ul>
+                        <li><strong>민주주의 체제:</strong> 중앙유럽의 모범적 민주국가</li>
+                        <li><strong>경제 발전:</strong> 세계 10대 공업국 달성</li>
+                        <li><strong>문화 황금기:</strong> 카프카, 차페크 등 문학가 배출</li>
+                    </ul>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">20년</div>
+                            <div class="stat-label">민주주의 지속</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">세계 10위</div>
+                            <div class="stat-label">공업 생산량</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">350만</div>
+                            <div class="stat-label">독일계 소수민족</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 뮌헨 협정과 2차 대전 -->
+            <div class="era-section tragic-section">
+                <div class="era-header">
+                    <div class="era-icon">💔</div>
+                    <div class="era-title">
+                        <h2>뮌헨 협정과 2차 대전</h2>
+                        <div class="era-period">1938년 ~ 1945년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>서구 열강의 유화정책으로 체코슬로바키아가 히틀러에게 희생되면서 제2차 세계대전의 서막이 올랐습니다.</p>
+                    
+                    <h3>뮌헨 협정의 배신</h3>
+                    <ul>
+                        <li><strong>1938년 9월 30일:</strong> "우리에 대해, 우리 없이" 결정된 운명</li>
+                        <li><strong>주데텐란트 할양:</strong> 방어선과 공업지대 상실</li>
+                        <li><strong>에두아르드 베네시:</strong> 대통령 사임과 망명</li>
+                    </ul>
+                    
+                    <h3>나치 점령과 저항</h3>
+                    <ul>
+                        <li><strong>1939년 3월 15일:</strong> 보헤미아-모라비아 보호령 설치</li>
+                        <li><strong>하이드리히 암살 (1942):</strong> "인류학자" 라인하르트 하이드리히 처단</li>
+                        <li><strong>리디체 학살:</strong> 나치의 보복으로 마을 전체 소멸</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>체코의 비극:</strong> 뮌헨 협정은 "우리에 대해, 우리 없이(O nás bez nás)"라는 슬로건으로 체코인들에게 깊은 배신감을 남겼습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 공산주의 시대 -->
+            <div class="era-section communist-section">
+                <div class="era-header">
+                    <div class="era-icon">🚩</div>
+                    <div class="era-title">
+                        <h2>공산주의 시대</h2>
+                        <div class="era-period">1948년 ~ 1989년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>전후 복구 과정에서 공산당이 권력을 장악하여 41년간 소비에트 위성국으로 존재했습니다.</p>
+                    
+                    <h3>공산주의 체제 확립</h3>
+                    <ul>
+                        <li><strong>1948년 2월 정변:</strong> 공산당의 완전한 권력 장악</li>
+                        <li><strong>클레멘트 고트발트:</strong> 초대 공산주의 대통령</li>
+                        <li><strong>중앙계획경제:</strong> 급속한 중공업화 추진</li>
+                    </ul>
+                    
+                    <h3>프라하의 봄 (1968)</h3>
+                    <ul>
+                        <li><strong>알렉산드르 둡체크:</strong> "인간의 얼굴을 한 사회주의"</li>
+                        <li><strong>자유화 정책:</strong> 언론자유, 여행자유, 경제 개혁</li>
+                        <li><strong>8월 21일 침공:</strong> 바르샤바 조약군 50만 명 침공</li>
+                    </ul>
+                    
+                    <h3>정상화 시대</h3>
+                    <ul>
+                        <li><strong>구스타프 후사크:</strong> 소련 충성파, 억압 정책 재개</li>
+                        <li><strong>헌장 77:</strong> 바츨라프 하벨 등 반체제 인사들의 저항</li>
+                        <li><strong>얀 팔라흐:</상> 1969년 분신 항의로 저항 의지 상징</li>
+                    </ul>
+                    
+                    <div class="key-events">
+                        <h4>🌸 프라하의 봄 의의</h4>
+                        <p>1968년 개혁 운동은 비록 실패했지만, 동구권 민주화 운동의 선구가 되었습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 벨벳 혁명 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">✊</div>
+                    <div class="era-title">
+                        <h2>벨벳 혁명</h2>
+                        <div class="era-period">1989년 11월 17일 ~ 12월 29일</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>학생 시위에서 시작된 비폭력 혁명이 6주 만에 공산주의 체제를 무너뜨렸습니다.</p>
+                    
+                    <h3>혁명의 발단</h3>
+                    <ul>
+                        <li><strong>11월 17일:</strong> 국제학생의 날 기념 시위에서 시작</li>
+                        <li><strong>나로드니 거리:</strong> 경찰의 학생 시위대 진압이 도화선</li>
+                        <li><strong>시민포럼:</strong> 바츨라프 하벨 중심의 반정부 연합체</li>
+                    </ul>
+                    
+                    <h3>혁명의 전개</h3>
+                    <ul>
+                        <li><strong>11월 20일:</strong> 바츨라프 광장에 50만 명 집결</li>
+                        <li><strong>11월 27일:</strong> 전국 총파업 실시</li>
+                        <li><strong>극장 파업:</strong> 연극무대가 정치토론장으로 변모</li>
+                    </ul>
+                    
+                    <h3>승리와 민주화</h3>
+                    <ul>
+                        <li><strong>12월 10일:</strong> 구스타프 후사크 대통령 사임</li>
+                        <li><strong>12월 29일:</strong> 바츨라프 하벨 대통령 당선</li>
+                        <li><strong>1990년:</strong> 첫 자유선거 실시</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>벨벳 혁명:</strong> 단 한 방울의 피도 흘리지 않고 이루어진 평화혁명으로, 세계 민주화 운동의 모범이 되었습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 현대 체코 -->
+            <div class="era-section modern-section">
+                <div class="era-header">
+                    <div class="era-icon">🌟</div>
+                    <div class="era-title">
+                        <h2>현대 체코 공화국</h2>
+                        <div class="era-period">1993년 ~ 현재</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>벨벳 이혼을 통해 슬로바키아와 평화적으로 분리된 후 현대적 민주주의 국가로 발전했습니다.</p>
+                    
+                    <h3>벨벳 이혼과 독립 (1993)</h3>
+                    <ul>
+                        <li><strong>1993년 1월 1일:</strong> 체코슬로바키아 평화적 분할</li>
+                        <li><strong>바츨라프 하벨:</strong> 체코 공화국 초대 대통령</li>
+                        <li><strong>경제 전환:</상> 시장경제 체제로의 급속한 전환</li>
+                    </ul>
+                    
+                    <h3>서구 편입과 발전</h3>
+                    <ul>
+                        <li><strong>1999년 NATO 가입:</strong> 서방 안보체제 편입</li>
+                        <li><strong>2004년 EU 가입:</strong> 유럽 통합 과정 참여</li>
+                        <li><strong>경제 성장:</strong> 중앙유럽의 산업 허브로 발전</li>
+                    </ul>
+                    
+                    <h3>21세기 체코</h3>
+                    <ul>
+                        <li><strong>고도 선진국:</strong> OECD 회원국, 높은 생활수준</li>
+                        <li><strong>문화 강국:</strong> 프라하 세계문화유산, 영화와 문학 발달</li>
+                        <li><strong>첨단 제조업:</strong> 자동차, IT, 정밀기계 산업 특화</li>
+                    </ul>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">35년</div>
+                            <div class="stat-label">민주주의 지속</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">문해율</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12개</div>
+                            <div class="stat-label">유네스코 세계유산</div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <strong>현재의 체코:</strong> 천년의 굴곡진 역사를 딛고 일어선 체코는 이제 중앙유럽의 성공적인 민주주의 모델로 자리잡았습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="data-source">
+            <strong>📚 참고 문헌 및 출처:</strong> 
+            Britannica Encyclopedia, Wilson Center Digital Archive, Czech Embassy Historical Records, 
+            Prague Daily News, Embassy of Czech Republic, USC Digital Archive
+            <br><small>작성일: 2025년 6월 20일 | 최신 학술 자료 및 공식 기록을 바탕으로 작성</small>
+        </div>
+        
+        <div class="footer">
+            <h3>🇨🇿 체코 역사의 교훈</h3>
+            <p>체코는 강대국들 사이에서 수차례 분할과 점령을 당했지만, 문화와 정신력으로 민족의 정체성을 지켜냈습니다.</p>
+            <p>후스의 종교개혁, 프라하의 봄, 벨벳 혁명으로 이어지는 자유를 향한 의지는 인류 민주주의 역사의 소중한 유산입니다.</p>
+        </div>
+    </div>
+</body>
+</html>
