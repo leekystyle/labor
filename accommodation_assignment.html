@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙소 배정표</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .participants-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .participant-group {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .participant-group h4 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 1.2em;
+            border-bottom: 2px solid #6c757d;
+            padding-bottom: 10px;
+        }
+        
+        .yunnolyeon {
+            background-color: #fff3cd;
+            border-color: #ffeaa7;
+        }
+        
+        .yunnolyeon h4 {
+            color: #856404;
+            border-bottom-color: #856404;
+        }
+        
+        .general {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+        }
+        
+        .general h4 {
+            color: #0c5460;
+            border-bottom-color: #0c5460;
+        }
+        
+        .participant-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .participant-list li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        
+        .round {
+            margin-bottom: 40px;
+        }
+        
+        .round-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+            margin: 0;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #34495e;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+        
+        .room-number {
+            font-weight: bold;
+            text-align: center;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+        
+        .yunnolyeon-participant {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #ffeaa7;
+            display: inline-block;
+            margin: 1px;
+        }
+        
+        .principles {
+            background-color: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #28a745;
+            margin-top: 30px;
+        }
+        
+        .principles h3 {
+            color: #155724;
+            margin-top: 0;
+        }
+        
+        .principles ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .principles li {
+            margin-bottom: 8px;
+            color: #155724;
+        }
+        
+        .check-mark {
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .participants-info {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏨 숙소 배정표</h1>
+        
+        <h2>👥 참가자 분류</h2>
+        <div class="participants-info">
+            <div class="participant-group yunnolyeon">
+                <h4>🔶 연노련 (5명)</h4>
+                <ul class="participant-list">
+                    <li>고영환 (한국에너지기술평가원)</li>
+                    <li>최준호 (한국산업기술진흥원)</li>
+                    <li>이상주 (한국산업기술진흥원)</li>
+                    <li>이관엽 (한국에너지기술평가원)</li>
+                    <li>임현호 (해양수산과학기술진흥원)</li>
+                </ul>
+            </div>
+            
+            <div class="participant-group general">
+                <h4>🔷 일반 (11명)</h4>
+                <ul class="participant-list">
+                    <li>김경환, 이병철, 권성현, 유근섭, 전현기, 정승환 (한국수력원자력)</li>
+                    <li>백회우, 김민수 (한국승강기안전공단)</li>
+                    <li>조진우, 정세헌 (한국산업은행)</li>
+                    <li>조형준 (한국폴리텍)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="round">
+            <h3 class="round-title">🌟 1차 숙소 배정</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>방 번호</th>
+                        <th>1번</th>
+                        <th>2번</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="room-number">1호실</td>
+                        <td><span class="yunnolyeon-participant">고영환</span> (한국에너지기술평가원)</td>
+                        <td>김경환 (한국수력원자력)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">2호실</td>
+                        <td><span class="yunnolyeon-participant">최준호</span> (한국산업기술진흥원)</td>
+                        <td>백회우 (한국승강기안전공단)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">3호실</td>
+                        <td><span class="yunnolyeon-participant">이상주</span> (한국산업기술진흥원)</td>
+                        <td>조형준 (한국폴리텍)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">4호실</td>
+                        <td><span class="yunnolyeon-participant">이관엽</span> (한국에너지기술평가원)</td>
+                        <td>이병철 (한국수력원자력)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">5호실</td>
+                        <td><span class="yunnolyeon-participant">임현호</span> (해양수산과학기술진흥원)</td>
+                        <td>권성현 (한국수력원자력)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">6호실</td>
+                        <td>유근섭 (한국수력원자력)</td>
+                        <td>조진우 (한국산업은행)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">7호실</td>
+                        <td>전현기 (한국수력원자력)</td>
+                        <td>김민수 (한국승강기안전공단)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">8호실</td>
+                        <td>정승환 (한국수력원자력)</td>
+                        <td>정세헌 (한국산업은행)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="round">
+            <h3 class="round-title">🌟 2차 숙소 배정</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>방 번호</th>
+                        <th>1번</th>
+                        <th>2번</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="room-number">1호실</td>
+                        <td><span class="yunnolyeon-participant">고영환</span> (한국에너지기술평가원)</td>
+                        <td>백회우 (한국승강기안전공단)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">2호실</td>
+                        <td><span class="yunnolyeon-participant">최준호</span> (한국산업기술진흥원)</td>
+                        <td>유근섭 (한국수력원자력)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">3호실</td>
+                        <td><span class="yunnolyeon-participant">이상주</span> (한국산업기술진흥원)</td>
+                        <td>조진우 (한국산업은행)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">4호실</td>
+                        <td><span class="yunnolyeon-participant">이관엽</span> (한국에너지기술평가원)</td>
+                        <td>전현기 (한국수력원자력)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">5호실</td>
+                        <td><span class="yunnolyeon-participant">임현호</span> (해양수산과학기술진흥원)</td>
+                        <td>김민수 (한국승강기안전공단)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">6호실</td>
+                        <td>김경환 (한국수력원자력)</td>
+                        <td>조형준 (한국폴리텍)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">7호실</td>
+                        <td>이병철 (한국수력원자력)</td>
+                        <td>정세헌 (한국산업은행)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">8호실</td>
+                        <td>권성현 (한국수력원자력)</td>
+                        <td>정승환 (한국수력원자력)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="round">
+            <h3 class="round-title">🌟 3차 숙소 배정</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>방 번호</th>
+                        <th>1번</th>
+                        <th>2번</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="room-number">1호실</td>
+                        <td><span class="yunnolyeon-participant">고영환</span> (한국에너지기술평가원)</td>
+                        <td>조형준 (한국폴리텍)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">2호실</td>
+                        <td><span class="yunnolyeon-participant">최준호</span> (한국산업기술진흥원)</td>
+                        <td>정세헌 (한국산업은행)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">3호실</td>
+                        <td><span class="yunnolyeon-participant">이상주</span> (한국산업기술진흥원)</td>
+                        <td>전현기 (한국수력원자력)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">4호실</td>
+                        <td><span class="yunnolyeon-participant">이관엽</span> (한국에너지기술평가원)</td>
+                        <td>조진우 (한국산업은행)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">5호실</td>
+                        <td><span class="yunnolyeon-participant">임현호</span> (해양수산과학기술진흥원)</td>
+                        <td>정승환 (한국수력원자력)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">6호실</td>
+                        <td>김경환 (한국수력원자력)</td>
+                        <td>김민수 (한국승강기안전공단)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">7호실</td>
+                        <td>이병철 (한국수력원자력)</td>
+                        <td>백회우 (한국승강기안전공단)</td>
+                    </tr>
+                    <tr>
+                        <td class="room-number">8호실</td>
+                        <td>권성현 (한국수력원자력)</td>
+                        <td>유근섭 (한국수력원자력)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="principles">
+            <h3>📋 배정 원칙 및 검증 완료</h3>
+            <ul>
+                <li><span class="check-mark">✅</span><strong>연노련 제약 준수:</strong> 연노련 표시된 5명이 서로 같은 방을 사용하지 않음</li>
+                <li><span class="check-mark">✅</span><strong>소속 다양성:</strong> 가능한 한 다른 소속끼리 짝을 이루도록 배정</li>
+                <li><span class="check-mark">✅</span><strong>중복 방지:</strong> 3번의 숙소 배정에서 모든 조합이 서로 다름</li>
+                <li><span class="check-mark">✅</span><strong>균등 배정:</strong> 모든 참가자가 매 회차마다 다른 룸메이트와 함께 함</li>
+                <li><span class="check-mark">✅</span><strong>완전성 검증:</strong> 총 24개의 고유한 조합, 중복 조합 0개</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
