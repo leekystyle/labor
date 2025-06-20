@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폴란드 역사 종합 보고서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #dc1e35 0%, #8b0000 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '🇵🇱';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #dc1e35, #11998e);
+            transform: translateX(-50%);
+        }
+        
+        .era-section {
+            position: relative;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 45%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .era-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .era-section:nth-child(odd) {
+            margin-left: 0;
+        }
+        
+        .era-section:nth-child(even) {
+            margin-left: 55%;
+        }
+        
+        .era-section::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #dc1e35;
+            border-radius: 50%;
+            top: 30px;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #dc1e35;
+        }
+        
+        .era-section:nth-child(odd)::before {
+            right: -60px;
+        }
+        
+        .era-section:nth-child(even)::before {
+            left: -60px;
+        }
+        
+        .era-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .era-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #dc1e35, #11998e);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .era-title {
+            flex: 1;
+        }
+        
+        .era-title h2 {
+            color: #dc1e35;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .era-period {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .era-content {
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .era-content h3 {
+            color: #dc1e35;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+        
+        .era-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .era-content li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-left: 4px solid #dc1e35;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .key-events {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .key-events h4 {
+            color: #2d5016;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc1e35;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .data-source {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 40px;
+            font-size: 0.9rem;
+        }
+        
+        .modern-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .modern-section .era-title h2,
+        .modern-section .era-content h3 {
+            color: white;
+        }
+        
+        .modern-section::before {
+            background: #667eea;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .era-section {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .era-section::before {
+                left: -50px !important;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>폴란드 역사 대장정</h1>
+            <div class="subtitle">고대 슬라브 부족부터 현대 민주주의까지 천년의 여정</div>
+        </div>
+        
+        <div class="timeline">
+            <!-- 고대/로마시대 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">🏛️</div>
+                    <div class="era-title">
+                        <h2>고대 및 로마시대</h2>
+                        <div class="era-period">기원전 3세기 ~ 서기 5세기</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>현재 폴란드 지역은 켈트족, 스키타이족, 사르마티아족, 게르만족, 발트족 등 다양한 민족들이 거주했습니다.</p>
+                    
+                    <h3>주요 특징</h3>
+                    <ul>
+                        <li><strong>켈트족 정착:</strong> 기원전 4세기부터 남부 폴란드에 정착촌 건설</li>
+                        <li><strong>게르만족 이주:</strong> 스칸디나비아에서 이주한 게르만 부족들이 수세기간 거주</li>
+                        <li><strong>로마 영향:</strong> 로마 제국의 문화적 영향을 받았으나 직접 지배는 받지 않음</li>
+                        <li><strong>발트족 거주:</strong> 북동부 지역에 발트족들이 정착</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>고고학적 발견:</strong> 유럽에서 가장 오래된 치즈(기원전 5500년)와 바퀴 달린 운송수단의 최초 묘사(기원전 3400년)가 발견되었습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 슬라브족 정착 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">🌲</div>
+                    <div class="era-title">
+                        <h2>슬라브족 정착기</h2>
+                        <div class="era-period">5세기 ~ 10세기</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>서슬라브족이 현재의 폴란드 지역에 정착하여 부족 사회를 형성했습니다.</p>
+                    
+                    <h3>주요 부족들</h3>
+                    <ul>
+                        <li><strong>폴라니족(Polanie):</strong> 그니에즈노 중심의 부족, 폴란드의 어원</li>
+                        <li><strong>비슬라니족(Wiślanie):</strong> 크라쿠프 중심의 부족</li>
+                        <li><strong>기타 부족들:</strong> 마조비아, 실레지아, 쿠야비 지역의 여러 부족</li>
+                    </ul>
+                    
+                    <div class="key-events">
+                        <h4>🔥 슬라브 문화의 특징</h4>
+                        <p>다신교 신앙, 숲과 강을 신성시, 환대 문화, 씨족 중심 사회 구조를 가지고 있었습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 중세 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">👑</div>
+                    <div class="era-title">
+                        <h2>중세 왕국</h2>
+                        <div class="era-period">966년 ~ 1572년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>피아스트 왕조의 등장과 함께 폴란드가 유럽 기독교 문명권에 편입되었습니다.</p>
+                    
+                    <h3>피아스트 왕조 (966-1370)</h3>
+                    <ul>
+                        <li><strong>미에슈코 1세 (966):</strong> 기독교 수용, 폴란드 국가 기원</li>
+                        <li><strong>볼레스와프 1세:</strong> 1025년 첫 폴란드 왕으로 즉위</li>
+                        <li><strong>카지미에시 3세:</strong> "위대한 왕", 크라쿠프 대학 설립</li>
+                    </ul>
+                    
+                    <h3>야기에우워 왕조 (1386-1572)</h3>
+                    <ul>
+                        <li><strong>폴란드-리투아니아 연합:</strong> 1386년 개인적 연합 시작</li>
+                        <li><strong>그룬발트 전투 (1410):</strong> 튜튼 기사단에 대한 대승</li>
+                        <li><strong>황금 자유:</strong> 귀족 민주주의 발달</li>
+                    </ul>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">966년</div>
+                            <div class="stat-label">기독교 수용</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1025년</div>
+                            <div class="stat-label">왕국 수립</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1410년</div>
+                            <div class="stat-label">그룬발트 대승</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 근대 분할 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">💔</div>
+                    <div class="era-title">
+                        <h2>분할과 소멸</h2>
+                        <div class="era-period">1772년 ~ 1918년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>폴란드-리투아니아 연방이 러시아, 프러시아, 오스트리아에 의해 3차례 분할되어 지도상에서 사라졌습니다.</p>
+                    
+                    <h3>분할 과정</h3>
+                    <ul>
+                        <li><strong>1차 분할 (1772):</strong> 영토의 1/3, 인구의 절반 상실</li>
+                        <li><strong>2차 분할 (1793):</strong> 러시아와 프러시아가 추가 영토 획득</li>
+                        <li><strong>3차 분할 (1795):</strong> 폴란드 완전 소멸</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>123년간의 분할시대:</strong> 폴란드 민족은 국가 없이도 가톨릭 신앙과 문화를 통해 정체성을 유지했습니다.
+                    </div>
+                    
+                    <h3>저항과 부활 노력</h3>
+                    <ul>
+                        <li><strong>코시치우슈코 봉기 (1794):</strong> 독립을 위한 무장봉기</li>
+                        <li><strong>바르샤바 공국 (1807-1815):</strong> 나폴레옹의 도움으로 일시적 부활</li>
+                        <li><strong>11월 봉기 (1830), 1월 봉기 (1863):</strong> 러시아 지배에 대한 저항</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 1차 대전과 독립 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">🕊️</div>
+                    <div class="era-title">
+                        <h2>독립 회복</h2>
+                        <div class="era-period">1918년 ~ 1939년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>제1차 세계대전 종료와 함께 123년 만에 폴란드가 독립을 회복했습니다.</p>
+                    
+                    <h3>독립 과정</h3>
+                    <ul>
+                        <li><strong>윌슨의 14개 조항:</strong> 폴란드 독립을 전쟁 목표로 설정</li>
+                        <li><strong>1918년 11월 11일:</strong> 유제프 피우수드스키가 국가원수로 취임</li>
+                        <li><strong>베르사유 조약:</strong> 폴란드 독립과 영토 확정</li>
+                    </ul>
+                    
+                    <h3>제2공화국 (1918-1939)</h3>
+                    <ul>
+                        <li><strong>폴란드-소비에트 전쟁 (1919-1921):</strong> 동부 국경 확정</li>
+                        <li><strong>경제 발전:</strong> 그디니아 항구 건설, 공업 발달</li>
+                        <li><strong>정치적 불안정:</strong> 파벌 갈등과 경제적 어려움</li>
+                    </ul>
+                    
+                    <div class="key-events">
+                        <h4>🌟 주요 성과</h4>
+                        <p>바르샤바 전투(1920)에서 소비에트군을 물리치며 "비스툴라 강의 기적"을 이루어냈습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2차 대전 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">⚔️</div>
+                    <div class="era-title">
+                        <h2>제2차 세계대전</h2>
+                        <div class="era-period">1939년 ~ 1945년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>독일과 소련의 침공으로 폴란드는 다시 분할되었고, 인류 역사상 가장 참혹한 시련을 겪었습니다.</p>
+                    
+                    <h3>침공과 점령</h3>
+                    <ul>
+                        <li><strong>1939년 9월 1일:</strong> 독일의 폴란드 침공, 2차 대전 시작</li>
+                        <li><strong>1939년 9월 17일:</strong> 소련의 동부 폴란드 침공</li>
+                        <li><strong>몰로토프-리벤트로프 조약:</strong> 독소 불가침조약과 비밀 분할 협정</li>
+                    </ul>
+                    
+                    <h3>나치 점령하의 폴란드</h3>
+                    <ul>
+                        <li><strong>제네랄플란 오스트:</strong> 슬라브족 말살 및 독일화 계획</li>
+                        <li><strong>홀로코스트:</strong> 폴란드 유대인 300만 명 학살</li>
+                        <li><strong>지식인 학살:</strong> AB 작전, 탄넨베르크 작전</li>
+                    </ul>
+                    
+                    <h3>저항 운동</h3>
+                    <ul>
+                        <li><strong>국내군(AK):</상> 유럽 최대 규모의 저항 조직</li>
+                        <li><strong>바르샤바 봉기 (1944):</strong> 63일간의 영웅적 투쟁</li>
+                        <li><strong>망명 정부:</strong> 런던에서 합법 정부 유지</li>
+                    </ul>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">600만</div>
+                            <div class="stat-label">희생자 수</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">20%</div>
+                            <div class="stat-label">인구 손실률</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6,992명</div>
+                            <div class="stat-label">의인으로 인정받은 폴란드인</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 공산주의 시대 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">🚩</div>
+                    <div class="era-title">
+                        <h2>공산주의 시대</h2>
+                        <div class="era-period">1945년 ~ 1989년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>소비에트 영향하에 폴란드 인민공화국이 수립되어 44년간 사회주의 체제가 지속되었습니다.</p>
+                    
+                    <h3>초기 공산 체제 (1945-1956)</h3>
+                    <ul>
+                        <li><strong>루블린 위원회:</strong> 소련이 지원하는 임시 정부</li>
+                        <li><strong>부정선거 (1947):</strong> 공산당이 권력 장악</li>
+                        <li><strong>스탈린주의:</strong> 중공업 중심 급속 산업화</li>
+                    </ul>
+                    
+                    <h3>해빙과 개혁 시도</h3>
+                    <ul>
+                        <li><strong>1956년 포즈난 봉기:</strong> 노동자들의 첫 대규모 시위</li>
+                        <li><strong>고무우카 집권:</strong> 비교적 자유로운 정책</li>
+                        <li><strong>1968년 3월 사건:</strong> 학생 시위와 반유대주의 캠페인</li>
+                    </ul>
+                    
+                    <h3>기에레크 시대와 위기 (1970-1980)</h3>
+                    <ul>
+                        <li><strong>서방 차관 도입:</strong> 소비재 개선과 경제 현대화</li>
+                        <li><strong>1976년 파업:</상> 가격 인상에 대한 노동자 저항</li>
+                        <li><strong>KOR 결성:</상> 노동자수호위원회 창설</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>요한 바오로 2세:</strong> 1978년 폴란드 출신 교황 선출은 폴란드인들에게 큰 정신적 힘이 되었습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 솔리다리티와 민주화 -->
+            <div class="era-section">
+                <div class="era-header">
+                    <div class="era-icon">✊</div>
+                    <div class="era-title">
+                        <h2>솔리다리티와 민주화</h2>
+                        <div class="era-period">1980년 ~ 1989년</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>그단스크 조선소에서 시작된 솔리다리티 운동이 결국 공산주의 체제를 무너뜨렸습니다.</p>
+                    
+                    <h3>솔리다리티 탄생 (1980)</h3>
+                    <ul>
+                        <li><strong>레흐 바웬사:</strong> 그단스크 조선소 전기기사, 운동 지도자</li>
+                        <li><strong>그단스크 협정:</strong> 자유노조 결성권 인정</li>
+                        <li><strong>1,000만 회원:</strong> 전 인구의 1/4이 가입</li>
+                    </ul>
+                    
+                    <h3>계엄령 선포 (1981-1983)</h3>
+                    <ul>
+                        <li><strong>야루젤스키:</strong> 1981년 12월 13일 계엄령 선포</li>
+                        <li><strong>솔리다리티 지하화:</strong> 비폭력 저항 지속</li>
+                        <li><strong>국제적 지지:</strong> 서방의 경제 제재</li>
+                    </ul>
+                    
+                    <h3>원탁회의와 민주화 (1989)</h3>
+                    <ul>
+                        <li><strong>1989년 2월:</strong> 정부와 솔리다리티 간 원탁회의</li>
+                        <li><strong>부분 자유선거:</strong> 솔리다리티 압승</li>
+                        <li><strong>마조비에츠키 정부:</strong> 최초 비공산당 총리</li>
+                    </ul>
+                    
+                    <div class="key-events">
+                        <h4>🎯 역사적 의의</h4>
+                        <p>솔리다리티는 동유럽 공산주의 붕괴의 도미노 현상을 시작한 "첫 번째 벽돌"이었습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 현대 폴란드 -->
+            <div class="era-section modern-section">
+                <div class="era-header">
+                    <div class="era-icon">🌟</div>
+                    <div class="era-title">
+                        <h2>현대 폴란드</h2>
+                        <div class="era-period">1989년 ~ 현재</div>
+                    </div>
+                </div>
+                <div class="era-content">
+                    <p>제3공화국으로 민주주의와 시장경제를 정착시키며 유럽의 주요 국가로 부상했습니다.</p>
+                    
+                    <h3>정치적 전환 (1989-1999)</h3>
+                    <ul>
+                        <li><strong>발체로비치 플랜:</strong> 급격한 시장경제 전환 "충격요법"</li>
+                        <li><strong>1990년:</strong> 바웬사 대통령 당선</li>
+                        <li><strong>1997년 헌법:</strong> 현재의 민주주의 헌법 제정</li>
+                    </ul>
+                    
+                    <h3>서구 편입 (1999-2004)</h3>
+                    <ul>
+                        <li><strong>1999년 NATO 가입:</strong> 서방 안보체제 편입</li>
+                        <li><strong>2004년 EU 가입:</strong> 유럽통합 과정 참여</li>
+                        <li><strong>경제성장:</strong> "유럽의 경제 기적" 달성</li>
+                    </ul>
+                    
+                    <h3>21세기 발전</h3>
+                    <ul>
+                        <li><strong>지속적 성장:</strong> 30년간 연속 경제성장</li>
+                        <li><strong>EU 내 위상:</strong> 인구 4위, 경제규모 6위</li>
+                        <li><strong>디지털 혁신:</strong> IT 산업과 스타트업 생태계 발달</li>
+                    </ul>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">30년</div>
+                            <div class="stat-label">연속 경제성장</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6위</div>
+                            <div class="stat-label">EU 내 경제규모</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7배</div>
+                            <div class="stat-label">1990년 대비 GDP 증가</div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <strong>현재의 폴란드:</strong> 천년의 고난을 극복하고 유럽의 핵심 국가로 자리잡은 성공적인 민주주의 국가입니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="data-source">
+            <strong>📚 참고 문헌 및 출처:</strong> 
+            Britannica Encyclopedia, Wikipedia Historical Archives, Global Nonviolent Action Database, 
+            European Network Remembrance and Solidarity, Polish Statistical Office
+            <br><small>작성일: 2025년 6월 20일 | 최신 학술 자료 및 공식 기록을 바탕으로 작성</small>
+        </div>
+        
+        <div class="footer">
+            <h3>🇵🇱 폴란드 역사의 교훈</h3>
+            <p>천년의 역사를 통해 폴란드는 강인한 생존력과 불굴의 정신력으로 수많은 시련을 극복해왔습니다.</p>
+            <p>분할과 점령의 아픔을 딛고 일어선 폴란드의 여정은 자유와 민주주의의 가치를 보여주는 살아있는 역사입니다.</p>
+        </div>
+    </div>
+</body>
+</html>
